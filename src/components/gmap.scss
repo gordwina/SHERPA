@@ -1,0 +1,35 @@
+.gmapContainer {
+    height: 93%!important;
+    margin-top:-60px;
+    z-index: -5!important;
+} 
+
+.gm-style-mtc{
+    display: none;
+}
+
+.gm-fullscreen-control {
+    display : none; 
+}
+
+.gm-style-cc{
+    display : none; 
+}
+
+.gm-control-active {
+    margin-top: -20px;
+    margin-right: 30px;
+}
+.gmnoprint{ 
+  
+}
+
+.gm-svpc {
+    display : none;
+}
+
+.infoWindow{
+    height: 120px;
+    width: 130px;
+    background: yellow; 
+}

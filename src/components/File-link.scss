@@ -1,0 +1,60 @@
+@import '../style/colors.scss';
+@import '../style/font.scss';
+@import '../style/icon/style.scss' ; 
+
+.FileLink{
+    width: 397px;
+    height: 89px;
+    margin-left: 16px; 
+    margin-top: 10px;
+    background: $white;
+    border: 0.4px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 11px 9px rgba(0, 0, 0, 0.07);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+}
+
+.FileLinkImage {  
+    margin-left: 10px; 
+    margin-top: 10px;
+    background-image:  url(../asset/random-image.png);
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 70px;
+    border-radius: 3px;
+}
+
+.FileLinkInformation{
+    width: 196px;
+    margin-top: 10px;
+    margin-left: 14px;
+    height: 70px;
+    //background-color: salmon;
+    .FileLinkLocation{
+        color: $blue;
+        font-weight: 16px;
+    }
+}
+
+.FileLinkPlus{
+    margin-top: 10px;
+    .icon-star_icon{
+        color: grey;
+        font-size: 24px;
+        margin-left: 65px;
+        &:hover {
+           
+            color: $yellow ;
+            transition: transform .5s ease;
+            transition-duration: 1s;        
+        }
+    }
+    .FileLinkSchedule{
+        margin-top: 32px;
+        font-size: 13px;
+        margin-left: 10px;
+        
+    }
+
+}

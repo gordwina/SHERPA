@@ -1,0 +1,45 @@
+@import './colors.scss';
+$font-stack: font-family 'Poppins', sans-serif;
+
+
+body, p, input, button  {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+};
+
+a {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 41px;
+};
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.brand {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 33px;
+    color: $darkBlue;
+}
+

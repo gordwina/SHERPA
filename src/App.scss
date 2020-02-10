@@ -1,0 +1,10 @@
+
+@import './style/reset.scss';
+@import './style/colors.scss';
+@import './style/font.scss';
+
+.App {
+
+    max-height: 750px;	
+    overflow-y: hidden !important;
+}
