@@ -1,0 +1,23 @@
+.search-bar-left {
+  z-index: 90000;
+  height: 100vh;
+  width: 60px;
+  background: rgba(196, 196, 196, 0.3);
+  border-right: 1px solid #D1D1D1;
+  display: flex;
+  flex-direction: column;
+
+  .search-bar-item {
+    height: 50px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #D1D1D1;
+  }
+
+  .search-bar-item-active {
+    background: white;
+  }
+}

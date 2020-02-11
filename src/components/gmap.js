@@ -82,17 +82,18 @@ export class Gmap extends React.Component {
     return (
       
       <Map
-      className= "gmapContainer"
+      className= {this.props.usingClass}
       google={this.props.google}
       zoom={12}
-      style={mapStyles}
-      initialCenter={{ lat: 48.8583701, lng: 2.2944813}} 
+
+      initialCenter={{ lat: 48.8583701, lng: 2.2944813}}
+      style={this.props.style}
       >
       {this.displayMarkersStadium()}
       
       </Map>
-      
-      
+
+
       );
     }
   }
@@ -100,13 +101,3 @@ export class Gmap extends React.Component {
   export default GoogleApiWrapper({
     apiKey: 'AIzaSyC9t3-AiZzfZ7zOWgAChLf7-3jQ8PPPTgY'
   })(Gmap);
-  
-  
-  const mapStyles = {
-    width: '100%',
-    height: '100%',
-    //marginTop: '-60px',
-    zIndex: '-5',
-    overflow: 'hidden',
-    
-  };

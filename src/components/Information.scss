@@ -1,0 +1,145 @@
+@import "../style/colors.scss";
+@import "../style/font.scss";
+@import "../style/button.scss";
+@import "../style/icon/style.scss";
+
+.InformationContainer {
+  display: flex;
+  z-index: 1000;
+  height: calc(100vh - 60px);
+  width: 100vw;
+}
+
+.chart {
+  height: 40vh;
+  width: 60vw;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.chart:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.information__left {
+  width: 60%;
+
+  height: 100%;
+
+  .information__left--top {
+    height: 50%;
+    width: 100%;
+
+    h1 {
+      padding: 10px 0 0 10px;
+    }
+    .information__inner--top {
+      width: 100%;
+      height: 40%;
+      display: flex;
+
+      .information__photo {
+        height: 100%;
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .informations__content {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .capacity-picto,
+      .affluence-picto {
+        height: 50%;
+        width: 10%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .capacity-picto,
+      .affluence-picto {
+        img {
+          width: 50%;
+          margin-bottom: 30px;
+        }
+      }
+      .capacity-content,
+      .affluence-content {
+        height: 50%;
+        width: 80%;
+        margin-left: 10px;
+        p  {
+          font-size: 14px;
+        }
+      }
+      .bold {
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+
+    .information__inner--bottom {
+      width: 100%;
+      height: 100%;
+
+      .zones {
+        min-height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .zones-item {
+          width: 100%;
+          height: auto;
+          display: flex;
+          margin-bottom: 5px;
+
+          .item-name,
+          .item-time,
+          .item-capacity {
+            width: calc(100% / 3);
+            text-align: center;
+          }
+
+          .item-time,
+          .item-capacity {
+            color: $blue;
+          }
+
+          .item-name {
+            color: $darkBlue;
+          }
+        }
+      }
+    }
+  }
+  .information__left--bottom {
+    height: 50%;
+    width: 100%;
+    h1 {
+      margin-left: 10px;
+    }
+  }
+}
+.information__right {
+  width: 40%;
+
+  height: 100%;
+
+  .information__right--top {
+    height: 50%;
+    width: 100%;
+    // background: violet;
+  }
+
+  .information__right--bottom {
+    height: 50%;
+    width: 100%;
+
+  }
+}
+

@@ -8,8 +8,7 @@ import FileLink from './File-link';
 
 class Deepsearch extends React.Component{
  constructor(props){
-  super(props) 
-  
+  super(props);
   this.state = {
     hasSearched : false
   }
