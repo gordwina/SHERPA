@@ -1,7 +1,7 @@
 import React from 'react';
 import './File-link.scss'
-import '../style/colors.scss';
-import '../style/font.scss';
+import '../../style/colors.scss';
+import '../../style/font.scss';
 
 
 function FileLink() {

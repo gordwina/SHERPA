@@ -2,24 +2,24 @@ import React from 'react';
 
 // CSS
 import './Information.scss'
-import '../style/colors.scss';
-import '../style/font.scss';
+import '../../style/colors.scss';
+import '../../style/font.scss';
 
 // nivoJS + config + data
 import { ResponsiveBar } from '@nivo/bar'
 import { ResponsiveStream } from '@nivo/stream';
-import globalData from '../data/globalData.js'
-import specData from '../data/specData.js'
-import globalConfig from '../data/config/globalConfig.js';
-import specConfig from '../data/config/specConfig.js';
+import globalData from '../../data/globalData.js'
+import specData from '../../data/specData.js'
+import globalConfig from '../../data/config/globalConfig.js';
+import specConfig from '../../data/config/specConfig.js';
 
 //components
-import SearchLeft from "./searchLeft";
+import SearchLeft from "../searchLeft/searchLeft";
 
 // assets
-import capacity from '../asset/capacity.svg';
-import affluence from '../asset/affluence.svg';
-import stade from '../asset/stade.png';
+import capacity from '../../asset/capacity.svg';
+import affluence from '../../asset/affluence.svg';
+import stade from '../../asset/stade.png';
 class Informations extends React.Component {
     constructor(props) {
         super(props);

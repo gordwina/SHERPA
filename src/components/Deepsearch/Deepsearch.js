@@ -1,8 +1,8 @@
 import React from 'react';
 import './Deepsearch.scss'
-import '../style/colors.scss';
-import '../style/font.scss';
-import FileLink from './File-link';
+import '../../style/colors.scss';
+import '../../style/font.scss';
+import FileLink from '../File-link/File-link';
 
 
 
@@ -13,7 +13,7 @@ class Deepsearch extends React.Component{
     hasSearched : false
   }
 
-  this.onSearching = this.onSearching.bind(this)
+  this.onSearching = this.onSearching.bind(this);
   this.onRemoving = this.onRemoving.bind(this)
  }
 

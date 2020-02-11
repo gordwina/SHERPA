@@ -2,9 +2,9 @@ import React from 'react'
 
 //CSS
 import './searchLeft.scss';
-import retour from "../asset/return.svg";
-import affluenceLeft from "../asset/affluence-left.svg";
-import search from "../asset/search.svg";
+import retour from "../../asset/return.svg";
+import affluenceLeft from "../../asset/affluence-left.svg";
+import search from "../../asset/search.svg";
 
 class SearchLeft extends React.Component {
     constructor(props) {

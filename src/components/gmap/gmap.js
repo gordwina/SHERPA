@@ -1,7 +1,7 @@
 import React from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
-import  './gmap.scss';
-import pinMapPath from '../asset/pinMap.png'
+import './gmap.scss';
+import pinMapPath from '../../asset/pinMap.png'
 
 
 export class Gmap extends React.Component {

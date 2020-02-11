@@ -2,13 +2,13 @@ import React from 'react';
 
 //css
 
-import '../style/colors.scss';
-import '../style/font.scss';
+import '../../style/colors.scss';
+import '../../style/font.scss';
 import './search.scss';
 
-import SearchLeft from "./searchLeft";
-import Deepsearch from "./Deepsearch";
-import Gmap from "./gmap";
+import SearchLeft from "../searchLeft/searchLeft";
+import Deepsearch from "../Deepsearch/Deepsearch";
+import Gmap from "../gmap/gmap";
 
 class Search extends React.Component {
     constructor(props) {
