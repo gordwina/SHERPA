@@ -23,18 +23,26 @@ button{
 }
 
 .SearchButton{
-    background: red;
+    background: $darkBlue ;
     border: 1px solid $darkBlue ;
     border-radius: 3px;
-    width: 164px;
+    width: 420px;
     height: 40px;
     outline:  none;
     margin-left: 20px;
     margin-top: 20px;
     color: $white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+   // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.60);
+   // box-shadow: 0px 0px 25px 9px rgba(0,0,0,0.29);
+   //box-shadow: 0px 0px 50px 0px rgba(58,80,107,0.71);
     .icon-magn_icon {
         margin-right : 7px;
+    }
+    &:hover {
+        background: $white ;
+        color: $darkBlue ;
+        transition: transform .5s ease;
+        transition-duration: 1s;        
     }
 }
 

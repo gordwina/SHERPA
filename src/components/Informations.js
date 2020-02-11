@@ -5,6 +5,7 @@ import './Information.scss'
 import '../style/colors.scss';
 import '../style/font.scss';
 
+
 // nivoJS + config + data
 import { ResponsiveBar } from '@nivo/bar'
 import { ResponsiveStream } from '@nivo/stream';
@@ -27,6 +28,7 @@ class Informations extends React.Component {
 
     render() {
         return (
+
 
             <div className='InformationContainer'>
               <SearchLeft></SearchLeft>
