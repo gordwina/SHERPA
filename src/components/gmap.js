@@ -114,23 +114,27 @@ displayMarkersPolice = () =>{
 
 
 
-render() {
-  return (
-    
-    <Map
-    className= "gmapContainer"
-    google={this.props.google}
-    zoom={12}
-    style={mapStyles}
-    initialCenter={{ lat: 48.8583701, lng: 2.2944813}} 
-    >
-    {this.displayMarkersStadium()}
-    {this.displayMarkersPolice()} 
-    
-    </Map>
-    
-    
-    );
+  
+  
+  render() {
+    return (
+      
+      <Map
+      className= {this.props.usingClass}
+      google={this.props.google}
+      zoom={12}
+
+      initialCenter={{ lat: 48.8583701, lng: 2.2944813}}
+      style={this.props.style}
+      >
+      {this.displayMarkersStadium()}
+       {this.displayMarkersPolice()} 
+      </Map>
+
+
+      );
+    }
+
   }
 }
 
@@ -138,13 +142,4 @@ export default GoogleApiWrapper({
   apiKey: 'AIzaSyC9t3-AiZzfZ7zOWgAChLf7-3jQ8PPPTgY'
 })(Gmap);
 
-
-const mapStyles = {
-  width: '100%',
-  height: '100%',
-  //marginTop: '-60px',
-  zIndex: '-5',
-  overflow: 'hidden',
-  
-};
 

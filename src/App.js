@@ -3,9 +3,7 @@ import './style/colors.scss';
 import './style/font.scss';
 import './App.scss';
 import Top from './components/Top'
-import Deepsearch  from './components/Deepsearch'
-import Gmap from './components/gmap'
-//import Informations from './components/Informations';
+
 
 function App() {
 
@@ -14,17 +12,15 @@ function App() {
  <div className='App'> 
   
   <Top></Top>
-  
-  <Deepsearch></Deepsearch>
-  <Gmap></Gmap>
-  
-  
+
+   {/* <Informations></Informations> */ }
+   <Search></Search>
 
 
-  </div> 
+ {/*  <Deepsearch></Deepsearch>
+  <Gmap usingClass={"google"}></Gmap> */}
 
-
- 
+  </div>
   );
 }
 
