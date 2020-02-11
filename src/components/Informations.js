@@ -4,8 +4,10 @@ import '../style/colors.scss';
 import '../style/font.scss';
 
 class Informations extends React.Component{
-    constructor(props){}
+    constructor(props){
         super(props);
+    }
+       
         
     render(){
         return(

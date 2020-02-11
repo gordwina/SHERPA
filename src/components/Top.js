@@ -8,7 +8,7 @@ function Top() {
   return (
     <div className="Head">
 
-      <div class="brandingWrapper">
+      <div className="brandingWrapper">
         <div className="logo"></div>
         
         <div className="brand">
