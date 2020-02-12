@@ -1,8 +1,5 @@
-@import "../style/colors.scss";
-@import "../style/font.scss";
-@import "../style/button.scss";
-@import "../style/icon/style.scss";
-
+@import '../style/indexStyle.scss';
+@import '../style/icon/style.scss' ; 
 .InformationContainer {
   display: flex;
   z-index: 1000;
