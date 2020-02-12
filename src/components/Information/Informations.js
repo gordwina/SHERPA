@@ -32,7 +32,7 @@ class Informations extends React.Component {
               <SearchLeft></SearchLeft>
                 <div className="information__left">
                     <div className="information__left--top">
-                        <h1>STADE DE FRANCE  </h1>
+                        <h1>STADE DE FRANCE</h1>
                         <div className="information__inner--top">
                             <div className="information__photo">
                                 <img src={stade} alt="stade" />

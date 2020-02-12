@@ -11,8 +11,6 @@
 .search__left {
   width: calc(50% - 30px);
   height: 100%;
-  background: teal;
-
 
   h1 {
     margin-left: 30px;
@@ -27,18 +25,22 @@
 .search__right {
   width: calc(50% - 30px);
   height: 100%;
-  background: lavender;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
-
   .right {
     height: 50%;
     width: calc(100% - 20px);
    &:first-child {
-     background: blue;
+     margin-top: 10px;
+     margin-bottom: 20px;
    }
+
+    .right--bottom {
+      z-index: 10;
+      background: red;
+    }
   }
 }
