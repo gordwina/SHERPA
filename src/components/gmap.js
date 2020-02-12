@@ -136,7 +136,8 @@ displayMarkersPolice = () =>{
     }
 
   }
-}
+
+
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyC9t3-AiZzfZ7zOWgAChLf7-3jQ8PPPTgY'
