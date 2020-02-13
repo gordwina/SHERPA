@@ -3,32 +3,52 @@ import './Deepsearch.scss'
 import '../../style/colors.scss';
 import '../../style/font.scss';
 import FileLink from '../File-link/File-link';
-
+import Data from './Data';
 
 
 class Deepsearch extends React.Component{
  constructor(props){
   super(props);
   this.state = {
-    hasSearched : false
-  }
+    hasSearched : false,
+    searching: false,
+    searchValue : "",
+      searchList : "",
+      values: [
+          {
+            name :"stade de france",
+              capacity: 300,
+              date: "jeudi soir"
+          },
+          {
+              name :"palais royal",
+              capacity: 300,
+              date: "mardi matin"
+          },
+          {
+              name :"teddy",
+              capacity: 300,
+              date: "jeudi nuit"
+          },
+      ],
+      poets: [],
+      filteredPoets: []
+
+  };
 
   this.onSearching = this.onSearching.bind(this);
   this.onRemoving = this.onRemoving.bind(this)
  }
 
- fileGenerator(){
-   let array = [];
-   for ( let i =0 ; i <30; i++){
-     array.push(<FileLink/>)
-   }
-   return array
- }
+
+handleClick = (e) => {
+     this.setState({searchList : e.target.value});
+    console.log(this.state.searchList)
+};
 
  onSearching(){
    this.setState({
     hasSearched : true
-
    })
  }
 
@@ -36,6 +56,12 @@ class Deepsearch extends React.Component{
    this.setState({
      hasSearched : false
    })
+ }
+
+    pushInput(e) {
+     let value = e.target.value.toLowerCase();
+     this.setState({searching: true});
+     this.setState({searchValue: value});
  }
 
   render() {
@@ -46,13 +72,11 @@ class Deepsearch extends React.Component{
          <i className="icon-magn_icon"></i> 
          Rechercher 
        </button>
-
-        {this.state.hasSearched === true ? 
-
+        {this.state.hasSearched === true ?
         <div className="DeepSearchContainer">
           <div className="SearchHelp">
             <i className="icon-magn_icon"></i>
-            <input placeholder="Rechercher" type="text" maxlength="30"></input>
+            <input id="search" placeholder="Rechercher" type="text" maxLength="30" onKeyUp={(e) => this.pushInput(e)}></input>
             <button onClick={this.onRemoving}><i className="icon-remove_icon"></i></button>
           </div>
 
@@ -63,20 +87,16 @@ class Deepsearch extends React.Component{
 
             <div className="LocationSearch">
               <button className="locationButton"> 
-                location 
+                location
                <i className="icon-arrow_icon"></i>
               </button>
 
               <div className="locationContent">
-                <a href="https://www.facebook.com/">  Stade de France </a>
-                <a href="#"> Grand Palais</a>
-                <a href="#"> Bercy Arena </a>
-                <a href="#"> La Vilette </a>
-                <a href="#"> Roland-Garros </a>
-                <a href="#"> Stade Yves du Manoir-Colombes </a>
-                <a href="#"> Champ-de-Mars </a>
-                <a href="#"> Parc des Princes</a>
-                <a href="#"> Stade Yves-du-Manoir</a>              
+                  {
+                      Data.location.map((item) =>
+                          <a href="">{item.name}</a>
+                      )
+                  }
               </div> 
             </div>
 
@@ -85,8 +105,14 @@ class Deepsearch extends React.Component{
             </div>
           </div>
           <hr/>
-          <div className="FileLinkWrapper">
-          {this.fileGenerator()} 
+          <div className="FileLinkWrapper" onClick={this.fileGenerator}>
+              {
+                  this.state.values.map((val)=>{
+                      if ( val.name.indexOf(this.state.searchValue) === 0) {
+                          return <FileLink location={val.name} capacity={val.capacity} date={val.date}/>
+                      }
+                  })
+              }
           </div>
         </div>
         

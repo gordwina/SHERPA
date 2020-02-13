@@ -4,26 +4,27 @@ import '../../style/colors.scss';
 import '../../style/font.scss';
 
 
-function FileLink() {
-    return (
-      <div className="FileLink">
-        <div className="FileLinkImage"></div>
+class FileLink extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-        <div className="FileLinkInformation">
-            <p className="FileLinkLocation"> <strong>Stade de france</strong> </p>
-            <p className="FileLinkCapacity"><i className="icon-people_icon"></i> Capacité 81 335  </p>
-            <p className="FileLinkDistance">O 100m </p>
-
-        </div>
-
-        <div className="FileLinkPlus"> 
-       <i className="icon-star_icon"></i> 
-            <p className="FileLinkSchedule"> 16h00 / 19h00 </p>
-        </div>
-
-        
-      </div>
-    );
+    render() {
+        return (
+            <div className="FileLink">
+                <div className="FileLinkImage"></div>
+                <div className="FileLinkInformation">
+                    <p className="FileLinkLocation"> <strong>{this.props.location}</strong> </p>
+                    <p className="FileLinkCapacity"><i className="icon-people_icon"></i> {this.props.capacity}  </p>
+                    <p className="FileLinkDistance">O 100m </p>
+                </div>
+                <div className="FileLinkPlus">
+                    <i className="icon-star_icon"></i>
+                    <p className="FileLinkSchedule">{this.props.date}</p>
+                </div>
+            </div>
+        );
+    }
   }
       
   export default FileLink;
