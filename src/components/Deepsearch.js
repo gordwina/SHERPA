@@ -1,6 +1,6 @@
 import React from 'react';
 import './Deepsearch.scss'
-import '../style/colors.scss';
+import '../style/colors.scss'; 
 import '../style/font.scss';
 import FileLink from './File-link';
 
@@ -39,7 +39,7 @@ class Deepsearch extends React.Component{
  }
 
   render() {
-    return (
+    return ( 
       <div className="DeepSearch">
        <button className="SearchButton" onClick={this.onSearching} > 
        {/* <button className="SearchButton" onClick={() => this.setState({ hasSearched: true })} >  */}
