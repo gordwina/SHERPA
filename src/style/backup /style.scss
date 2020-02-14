@@ -1,0 +1,157 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?c0i4yf');
+  src:  url('fonts/icomoon.eot?c0i4yf#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?c0i4yf') format('truetype'),
+    url('fonts/icomoon.woff?c0i4yf') format('woff'),
+    url('fonts/icomoon.svg?c0i4yf#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-calendar:before {
+  content: "\e91b";
+}
+.icon-add_icon:before {
+  content: "\e900";
+}
+.icon-arrow_icon:before {
+  content: "\e901";
+}
+.icon-back_icon:before {
+  content: "\e902";
+}
+.icon-fireman_icon .path1:before {
+  content: "\e903";
+  color: rgb(255, 255, 255);
+}
+.icon-fireman_icon .path2:before {
+  content: "\e904";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-fireman_icon .path3:before {
+  content: "\e905";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-fireman_icon .path4:before {
+  content: "\e906";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-hospital_icon .path1:before {
+  content: "\e907";
+  color: rgb(255, 255, 255);
+}
+.icon-hospital_icon .path2:before {
+  content: "\e908";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-hospital_icon .path3:before {
+  content: "\e909";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-level_danger1 .path1:before {
+  content: "\e90a";
+  color: rgb(0, 0, 0);
+  opacity: 0.2;
+}
+.icon-level_danger1 .path2:before {
+  content: "\e90b";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-level_danger2 .path1:before {
+  content: "\e90c";
+  color: rgb(0, 0, 0);
+  opacity: 0.2;
+}
+.icon-level_danger2 .path2:before {
+  content: "\e90d";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-level_danger3 .path1:before {
+  content: "\e90e";
+  color: rgb(0, 0, 0);
+  opacity: 0.2;
+}
+.icon-level_danger3 .path2:before {
+  content: "\e90f";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-magn_icon:before {
+  content: "\e910";
+}
+.icon-minus_icon:before {
+  content: "\e911";
+}
+.icon-olympics_icon .path1:before {
+  content: "\e91c";
+  color: rgb(0, 0, 0);
+}
+.icon-olympics_icon .path2:before {
+  content: "\e91d";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-olympics_icon .path3:before {
+  content: "\e91e";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-people_icon:before {
+  content: "\e912";
+}
+.icon-police_icon .path1:before {
+  content: "\e913";
+  color: rgb(255, 255, 255);
+}
+.icon-police_icon .path2:before {
+  content: "\e914";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-police_icon .path3:before {
+  content: "\e915";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-remove_icon:before {
+  content: "\e916";
+}
+.icon-safezone_icon .path1:before {
+  content: "\e917";
+  color: rgb(255, 255, 255);
+}
+.icon-safezone_icon .path2:before {
+  content: "\e918";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-star_icon:before {
+  content: "\e919";
+}
+.icon-stat_icon:before {
+  content: "\e91a";
+}

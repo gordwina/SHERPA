@@ -2,24 +2,27 @@ import React from 'react';
 import './style/colors.scss';
 import './style/font.scss';
 import './App.scss';
-import Top from './components/Top/Top'
-//import Gmap from './components/gmap'
-import Informations from './components/Information/Informations';
-import Deepsearch from "./components/Deepsearch/Deepsearch";
-import Search from "./components/Search/Search";
+import Top from './components/header/Top';
+import Deepsearch from './components/searching/Deepsearch';
+import Gmap from './components/map/gmap';
+import Calendar from './components/Calendar/Calendar';
+import CrowdKey from  './components/map/crowdKey';
+import MapKey from  './components/map/mapKey';
+
 
 function App() {
 
-/*   onclick */
+
   return (   
  <div className='App'> 
-  
-  <Top></Top>
-   {/* <Informations></Informations> */ }
-   <Search></Search>
 
- {/*  <Deepsearch></Deepsearch>
-  <Gmap usingClass={"google"}></Gmap> */}
+  <Top></Top> 
+  <Deepsearch></Deepsearch>
+  <Calendar></Calendar>
+  <MapKey></MapKey>
+  <CrowdKey></CrowdKey>
+  <Gmap usingClass={"google"}></Gmap> 
+ 
 
   </div>
   );

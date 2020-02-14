@@ -1,0 +1,45 @@
+@import '../../style/indexStyle.scss';
+@import '../../style/icon/style.scss' ;
+
+
+.search {
+  width: 100%;
+  height: calc(100vh - 60px);
+  display: flex;
+
+}
+
+.search__left {
+  width: calc(50% - 30px);
+  height: 100%;
+  background: teal;
+
+
+  h1 {
+    margin-left: 30px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: $darkBlue;
+    font-size: 18px;
+
+  }
+}
+
+.search__right {
+  width: calc(50% - 30px);
+  height: 100%;
+  background: lavender;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+
+  .right {
+    height: 50%;
+    width: calc(100% - 20px);
+   &:first-child {
+     background: blue;
+   }
+  }
+}

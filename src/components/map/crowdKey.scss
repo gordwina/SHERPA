@@ -1,0 +1,23 @@
+@import '../../style/indexStyle.scss';
+.crowdKeyContainer {
+    width: 372px;
+    height: 102px;
+    background :$white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    position : absolute; 
+    top: 84%;
+    left: 67%;
+    padding-left: 20px;
+    
+}
+
+.crowdKeyWrapper{
+    margin-top: 14px;
+    p {
+        margin-bottom: 10px; ;
+    }
+    i{ 
+        margin-right: 8px;
+    }
+}
