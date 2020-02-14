@@ -1,5 +1,5 @@
-@import './style/indexStyle.scss';
-@import './style/icon/style.scss' ;
+@import '../src/style/indexStyle.scss';
+@import '../src/style/icon/style.scss';
 
 .loginContainer{
     height: 766px;
@@ -115,6 +115,7 @@
                     font-size: 14px ;
                 }
                 
+                
                 input{
                     width: 475px;
                     height: 48px;
@@ -122,6 +123,23 @@
                     border: 1px solid #D1D1D1;
                     box-sizing: border-box;
                     border-radius: 3px;
+                    padding-left: 10px;
+                    font-size: 12px;
+                    color: $grey;
+                    input[type=text] {
+                        border: none;
+                        outline: none;
+                       
+                    }
+
+                }
+            }
+
+            .loginPwd {
+                input{
+                    
+                    -webkit-text-security: disc;
+                   
                 }
             }
           
