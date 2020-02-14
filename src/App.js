@@ -5,7 +5,7 @@ import "./App.scss";
 import Top from "./components/header/Top";
 import Deepsearch from "./components/searching/Deepsearch";
 import Gmap from "./components/map/gmap";
-import Calendar from "./components/calendar/Calendar";
+import Calendar from "./components/Calendar/Calendar";
 import CrowdKey from "./components/map/crowdKey";
 import MapKey from "./components/map/mapKey";
 
