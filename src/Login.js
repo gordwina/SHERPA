@@ -1,9 +1,26 @@
 import React from 'react';
 import './Login.scss';
 import brandImg from './asset/brandImg.png';
+import {Redirect} from 'react-router-dom';
+
 class Login extends React.Component {
     constructor(props){
-    super(props);
+        super(props);
+        this.state = { 
+            Redirect : false
+        }
+    }
+
+    setRedirect = () => {
+        this.setState({
+          redirect :true
+        })
+    }
+    
+    renderRedirect = ()  => {
+        if (this.state.redirect){
+          return <Redirect to='/home' />
+        }
     }
 
     render() {
@@ -39,10 +56,10 @@ class Login extends React.Component {
                    
                         <div className="loginPwd">
                             <p>mot de passe</p> 
-                            <input placeholder="entrez votre mot de passe " type="text" maxlength="30"></input>  
+                            <input className="Pwd" placeholder="entrez votre mot de passe " type="text" maxlength="30" ></input>  
                         </div>
                     
-                        <button className="loginButton"> <p>me connecter</p> </button>
+                        <button className="loginButton" onClick= {this.setRedirect} > {this.renderRedirect()} <p>me connecter</p> </button>
 
                     </div>
                 </div>

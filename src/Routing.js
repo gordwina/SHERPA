@@ -2,8 +2,10 @@
 import React from 'react';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import App from './App';
-//import Information from './components/Informations';
+import Informations from './components/information-page/Informations';
+import Favoris from './components/favoris/Favoris';
 import Login from './Login';
+
  
 export default function Routing() {
   return (
@@ -11,18 +13,22 @@ export default function Routing() {
     <div>
     <Switch>
     
-   <Route component={Login} path="/tata">
+   <Route component={Login} path="/login">
       <Login/>
     </Route>
    
 
-    <Route component={App} path="/toto">
+    <Route component={App} path="/home">
       <App/>
     </Route>
     
- {/*    <Route path="/informations">
+   <Route component={Informations} path="/informations">
       <Informations/> 
-    </Route> */}
+    </Route> 
+
+    <Route component={Favoris} path="/favoris">
+      <Favoris/> 
+    </Route> 
     
     </Switch>
     </div>
