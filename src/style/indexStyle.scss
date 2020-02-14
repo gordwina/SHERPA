@@ -1,5 +1,8 @@
-@import './reset.scss';
-@import './colors.scss';
-@import './font.scss';
-@import './button.scss';
+@import "./reset.scss";
+@import "./colors.scss";
+@import "./font.scss";
+@import "./button.scss";
 
+button {
+  cursor: pointer;
+}

@@ -1,37 +1,32 @@
-@import '../../style/indexStyle.scss';
-.mapKeyContainer{
-    width: 378px;
-    height: 102px;
-    background : $white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
-    position : absolute; 
-    top: 84%;
-    left: 40%;
-  
+@import "../../style/indexStyle.scss";
+.mapKeyContainer {
+  width: 378px;
+  height: 102px;
+  background: $white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  position: absolute;
+  top: 84%;
+  left: 40%;
 }
 
-.statusLeft,.statusRight{
-    p{
-        margin-bottom: 10px;
-        margin-left: 2px     
-    }
-    i{ 
-        margin-right: 8px;
-    }
-   
+.statusLeft,
+.statusRight {
+  p {
+    margin-bottom: 10px;
+    margin-left: 2px;
+  }
+  i {
+    margin-right: 8px;
+  }
 }
 
-.statusLeft{
-    margin-left: 10px;
-    margin-top: 28px;
-   
-    
+.statusLeft {
+  margin-left: 10px;
+  margin-top: 28px;
 }
 
-.statusRight{
-    margin-left: 225px;
-    margin-top: -60px;
-   
-
+.statusRight {
+  margin-left: 225px;
+  margin-top: -60px;
 }
