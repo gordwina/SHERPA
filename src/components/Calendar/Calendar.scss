@@ -1,3 +1,5 @@
+@import '../../style/indexStyle.scss';
+
 .CalendarContainer{
     position: absolute;
     left: 86%;
@@ -8,6 +10,12 @@
 .icon-calendar{
     margin-left: 2px;
 }
-.calendar{
-    
+.dateWrapper{
+    width: 319px;
+    height: 286px;
+    background: $white;
+    position: absolute;
+    right: 22px;
+    top: 46px;
 }
+

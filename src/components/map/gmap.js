@@ -1,9 +1,10 @@
 import React from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import  './gmap.scss';
-import pinMapPath from '../../asset/pinMap.png';
+import icon_JO_stadium from '../../asset/icon_JO_stadium.svg';
 import police_icon from '../../asset/police_icon.svg';
-
+import hospital from '../../asset/hospital.svg';
+import pompiers_icon from '../../asset/pompiers_icon.svg';
 
 export class Gmap extends React.Component {
   constructor(props) {
@@ -62,8 +63,40 @@ export class Gmap extends React.Component {
       {latitude: 48.8540096,longitude: 2.5783171, name:'Paris EST marne lavallée Comico '},  
       {latitude:48.9236513,longitude: 2.355672, name:'aubervillier'} ,
       
-    ] 
-  }  
+    ], 
+
+    hopital: [
+      {id:"39",name:"CHNO DES QUINZE-VINGT PARIS",latitude:48.8512676,longitude:2.372193,type:"Centres Hospitaliers"},
+      {name: 'Hôpitaux Universitaires Pitié Salpêtrière',latitude:48.8370792,longitude:2.3650429},
+      {id:"23",nome:"C.H.G ST DENIS (HOP . CASANOVA)",latitude:48.9299208,longitude:2.3607143,type:"Centres Hospitaliers"},
+     /*  below  FAKE AS FUCK  */
+      {latitude:48.936181,longitude: 2.352343, name:'SaintDenis Centre Comico'},  
+      {latitude: 48.86889239901695,longitude: 2.3439633427798, name:' Paris 2 comico'}, 
+      {latitude: 48.86714560393253,longitude:2.3310983177072, name:'PAris 1 comico'},  
+      {latitude: 48.86714560393253, longitude: 2.33137834177072, name:' Paris 8 comico Opéra'},
+
+    ],
+
+    pompier : [ 
+      {latitude: 48.86889239901695,longitude: 2.343963108027798, name:' Paris 2 comico'}, 
+      {latitude: 48.86714560393253,longitude:2.331378562177072, name:'PAris 1 comico'},  
+
+      {latitude: 48.8233737,longitude: 2.270274, name:'Issy  Commissariat central'}, 
+      {latitude: 48.8352357,longitude: 2.2408951999999998, name:'Boulbi Commissariat central '}, 
+      {latitude: 48.9218516, longitude: 2.2586868, name:'Colombes Commissariat '}, 
+    
+      {latitude: 48.8382677,longitude: 2.2864206, name:'Paris 15 comico'}, 
+      {latitude: 48.8015674,longitude: 2.1166273, name:'Versailles Comico'}, 
+      {latitude: 48.7854119,longitude: 2.0478015, name:'Guyancourt Comico'}, 
+      {latitude: 48.8755393,longitude: 2.3024263 , name:'Paris 8  comico'}, 
+
+
+    ]
+  } 
+  
+  
+
+
 }
 
 displayMarkersStadium = () => {
@@ -77,7 +110,7 @@ displayMarkersStadium = () => {
     }}
     
     icon={{
-      url: pinMapPath, 
+      url: icon_JO_stadium, 
     }}
     
     onClick={() => console.log(stadium.name)}
@@ -109,7 +142,46 @@ displayMarkersPolice = () =>{
     >
     </Marker> 
   })
+};
+
+displayMarkersHopital = () =>{
+  return this.state.hopital.map((hopital) => {
+    return <Marker
+    id={hopital.name}
+    key={hopital}
+    position={{ 
+      lat: hopital.latitude,
+      lng: hopital.longitude
+    }} 
+    icon={{
+      url: hospital, 
+    }}
+   onClick={() => console.log(hopital.name + " " + hopital.latitude)}
+    >
+    </Marker> 
+  })
+};
+
+displayMarkersPompier = () =>{
+  return this.state.pompier.map((pompier) => {
+    return <Marker
+    id={pompier.name}
+    key={pompier}
+    position={{ 
+      lat: pompier.latitude,
+      lng: pompier.longitude
+    }} 
+    icon={{
+      url: pompiers_icon, 
+    }}
+   onClick={() => console.log(pompier.name + " " + pompier.latitude)}
+    >
+    </Marker> 
+  })
 }
+
+
+
 
   render() {
     return (
@@ -122,6 +194,8 @@ displayMarkersPolice = () =>{
         initialCenter={{ lat: 48.8583701, lng: 2.2944813}}>
         {this.displayMarkersStadium()}
         {this.displayMarkersPolice()} 
+        {this.displayMarkersHopital()} 
+        {this.displayMarkersPompier()} 
       </Map>
       
       );
