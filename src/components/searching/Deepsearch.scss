@@ -1,172 +1,174 @@
 @import "../../style/indexStyle.scss";
 @import "../../style/icon/style.scss";
-.DeepSearchContainer {
+.DeepSearch{
   width: 429px;
   height: 650px;
-  margin-top: -40px;
-  margin-left: 20px;
-  background: #3a506b;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 3px;
-  position: absolute;
-  overflow: hidden;
-  z-index: 4;
-}
-.SearchHelp {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  //background: $red;
-  margin-top: 20px;
-
-  .icon-magn_icon {
-    height: 50px;
-    width: 50px;
-    color: $white;
-    margin-left: 25px;
+  .DeepSearchContainer { 
+    margin-top: -40px;
+    margin-left: 20px;
+    background: #3a506b;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 3px; 
+    position: absolute;
+    overflow: hidden;
+    z-index: 4;
   }
-  input {
-    width: 300px !important;
-    height: 23px;
-    background-color: $darkBlue;
-    margin-left: -20px;
-    border: none;
-    color: $white;
-  }
+  .SearchHelp {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    //background: $red;
+    margin-top: 20px;
 
-  input[type="text"] {
-    border: none;
-    outline: none;
-    color: $white;
-  }
-
-  ::placeholder {
-    color: $white;
-  }
-  /*  p {
-        margin-left: 17px; 
-        color: $white;
-    } */
-  button {
-    margin-left: 7%;
-    .icon-remove_icon {
-      color: $white;
-      &:hover {
-        color: $grey;
-      }
-    }
-  }
-}
-
-.SearchBar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 397px;
-  height: 48px;
-  background-color: $blurBlue;
-  margin-left: 15px;
-  // margin-top: 22px;
-  border-radius: 3px;
-  .icon-arrow_icon {
-    font-size: 9px;
-  }
-
-  p {
-    color: $darkBlue;
-    text-align: left;
-    margin-top: 11px;
-    margin-left: 10px;
-  }
-
-  .DateSearch {
-    width: 330px;
-    height: 40px;
-    background-color: $white;
-    border-radius: 3px;
-    margin-left: 5px;
-    margin-right: 15px;
-    i {
-      margin-left: 190px;
-    }
-  }
-  /* 
-    .LocationSearch {
-
-        .locationButton {
-            position: relative;
-            display: inline-block;
-        }
-        .locationContent{
-            padding-top: 10px;
-            display: none;
-            //margin-top: 10px;
-            position: absolute;
-            background-color: $darkWhite ;
-            width: 181px;
-            height: 200px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 3px;
-            border: 0.5px solid $darkBlue;
-            overflow: scroll;
-            a{
-                color: black;
-                padding: 7px 12px;
-                text-decoration: none;
-                display: inline-block;
-                //margin-left: 10px;
-                &:hover{
-                    background-color: yellow; 
-                }
-            }
-        }
-
-        &:hover{
-            .locationContent {
-                display: block;
-            }
-           
-        }
-        
-
-    } */
-
-  .DeploydSearch {
-    width: 45px;
-    height: 40px;
-    border-radius: 3px;
-    background-color: $blue;
-    margin-right: 5px;
-
-    &:hover {
-      background-color: $lightBlue;
-    }
     .icon-magn_icon {
-      font-size: 20px;
+      height: 50px;
+      width: 50px;
       color: $white;
-      margin-left: 13px;
-      line-height: 39px;
-      &:hover {
-        color: $grey;
+      margin-left: 25px;
+    }
+    input {
+      width: 300px !important;
+      height: 23px;
+      background-color: $darkBlue;
+      margin-left: -20px;
+      border: none;
+      color: $white;
+    }
+
+    input[type="text"] {
+      border: none;
+      outline: none;
+      color: $white;
+    }
+
+    ::placeholder {
+      color: $white;
+    }
+    /*  p {
+          margin-left: 17px; 
+          color: $white;
+      } */
+    button {
+      margin-left: 7%;
+      .icon-remove_icon {
+        color: $white;
+        &:hover {
+          color: $grey;
+        }
       }
     }
   }
-}
 
-hr {
-  margin-top: 14px;
-  background-color: $grey;
-  height: 1px;
-  width: 100%;
-  border: none;
-}
+  .SearchBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 397px;
+    height: 48px;
+    background-color: $blurBlue;
+    margin-left: 15px;
+    // margin-top: 22px;
+    border-radius: 3px;
+    .icon-arrow_icon {
+      font-size: 9px;
+    }
 
-.FileLinkWrapper {
-  margin-top: 10px;
-  width: 429px;
-  //background-color: red;
-  height: 450px;
-  overflow: scroll;
-  padding-bottom: 40px;
+    p {
+      color: $darkBlue;
+      text-align: left;
+      margin-top: 11px;
+      margin-left: 10px;
+    }
+
+    .DateSearch {
+      width: 330px;
+      height: 40px;
+      background-color: $white;
+      border-radius: 3px;
+      margin-left: 5px;
+      margin-right: 15px;
+      i {
+        margin-left: 190px;
+      }
+    }
+    /* 
+      .LocationSearch {
+
+          .locationButton {
+              position: relative;
+              display: inline-block;
+          }
+          .locationContent{
+              padding-top: 10px;
+              display: none;
+              //margin-top: 10px;
+              position: absolute;
+              background-color: $darkWhite ;
+              width: 181px;
+              height: 200px;
+              box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+              z-index: 1;
+              border-radius: 3px;
+              border: 0.5px solid $darkBlue;
+              overflow: scroll;
+              a{
+                  color: black;
+                  padding: 7px 12px;
+                  text-decoration: none;
+                  display: inline-block;
+                  //margin-left: 10px;
+                  &:hover{
+                      background-color: yellow; 
+                  }
+              }
+          }
+
+          &:hover{
+              .locationContent {
+                  display: block;
+              }
+            
+          }
+          
+
+      } */
+
+    .DeploydSearch {
+      width: 45px;
+      height: 40px;
+      border-radius: 3px;
+      background-color: $blue;
+      margin-right: 5px;
+
+      &:hover {
+        background-color: $lightBlue;
+      }
+      .icon-magn_icon {
+        font-size: 20px;
+        color: $white;
+        margin-left: 13px;
+        line-height: 39px;
+        &:hover {
+          color: $grey;
+        }
+      }
+    }
+  }
+
+  hr {
+    margin-top: 14px;
+    background-color: $grey;
+    height: 1px;
+    width: 100%;
+    border: none;
+  }
+
+  .FileLinkWrapper {
+    margin-top: 10px;
+    width: 429px;
+    //background-color: red;
+    height: 450px;
+    overflow: scroll;
+    padding-bottom: 40px;
+  }
 }

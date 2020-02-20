@@ -64,7 +64,7 @@ class Deepsearch extends React.Component {
         <button className="SearchButton" onClick={this.onSearching}>
           {/* <button className="SearchButton" onClick={() => this.setState({ hasSearched: true })} >  */}
           <i className="icon-magn_icon"></i>
-          Rechercher
+          Rechercher un lieu
         </button>
         {this.state.hasSearched === true ? (
           <div className="DeepSearchContainer">
