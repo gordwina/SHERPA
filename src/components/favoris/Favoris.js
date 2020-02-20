@@ -12,39 +12,36 @@ class Favoris extends React.Component {
     this.onSearching = this.onSearching.bind(this);
   }
 
-  /*  fileGenerator(){
+   fileGenerator(){
         let array = [];
-        for ( let i =0 ; i <30; i++){
+        for ( let i =0 ; i <7; i++){
           array.push(<FileLink/>)
         }
         return array
     }
- */
+
 
   onSearching() {
-    this.setState({
-      openFav: true
-    });
+    this.setState(prevState =>({
+      openFav: !prevState.openFav
+    }));
   }
+
+ 
 
   render() {
     return (
       <div className="FavorisContainer">
         <button className="btn favoris" onClick={this.onSearching}>
           mes favoris <i className="icon-arrow_icon"></i>
-        </button>
+        </button> 
 
-        {this.state.openFav === true ? (
+        {this.state.openFav === true ? ( 
           <div className="FavorisWrapper">
             <span className="letMusicPlay"></span>
-            {/* {this.fileGenerator()}  */}
-            <FileLink />
-            <FileLink />
-            <FileLink />
-            <FileLink />
-            <FileLink />
+             {this.fileGenerator()} 
           </div>
-        ) : null}
+        )  : null} 
       </div>
     );
   }

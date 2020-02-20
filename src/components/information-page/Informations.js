@@ -29,7 +29,7 @@ class Informations extends React.Component {
         <SearchLeft></SearchLeft>
         <div className="information__left">
           <div className="information__left--top">
-            <h1>STADE DE FRANCE </h1>
+            <h2>STADE DE FRANCE </h2>
             <div className="information__inner--top">
               <div className="information__photo">
                 <img src={stade} alt="stade" />
@@ -52,7 +52,7 @@ class Informations extends React.Component {
               </div>
             </div>
             <div className="information__inner--bottom">
-              <h1>Zone de repli à proximité</h1>
+              <h2>Zone de repli à proximité</h2>
               <div className="zones">
                 <div className="zones-item">
                   <div className="item-name">École Marcelin Berthelot</div>
@@ -84,7 +84,7 @@ class Informations extends React.Component {
           </div>
 
           <div className="information__left--bottom">
-            <h1>Affluence globale sur la période des JO</h1>
+            <h2>Affluence globale sur la période des JO</h2>
             <div class="chart">
               <ResponsiveBar
                 data={globalData}
