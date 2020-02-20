@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import "./Top.scss";
 import Favoris from "../favoris/Favoris";
 
@@ -19,12 +18,9 @@ class Top extends React.Component {
         </div>
 
         <div className="buttonWrapper">
-          <Favoris></Favoris>
-
-          {/*  @todo:alice calenddrier va devenir une modale */}
-
+          <Favoris></Favoris> 
           <a href="/login">
-            <button className="btn calendar">Déconnexion</button>
+            <button className="btn calendarButton">Déconnexion</button>
           </a>
         </div>
       </div>
