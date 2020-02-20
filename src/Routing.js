@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import App from "./App";
 import Informations from "./components/information-page/Informations";
 import Favoris from "./components/favoris/Favoris";
-import Login from "./Login";
+import Login from './components/login/Login';
 
 export default function Routing() {
   return (

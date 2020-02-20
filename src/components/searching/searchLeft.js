@@ -18,9 +18,9 @@ class SearchLeft extends React.Component {
             <img src={retour} alt="retour" />
           </a>
         </div>
-        <div className="search-bar-item search-bar-item-active">
+        {/* <div className="search-bar-item search-bar-item-active">
           <img src={affluenceLeft} alt="affluence-left" />
-        </div>
+        </div> */}
         {/*  <div className="search-bar-item">
                     <img src={search} alt="search"/>
                 </div> */}
