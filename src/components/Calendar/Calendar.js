@@ -5,16 +5,28 @@ class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      openFav: false
+      openFav: false,
+      tabDate : []
     };
     this.onSearching = this.onSearching.bind(this);
   }
+
 
   onSearching() {
     this.setState({
       openFav: true
     });
   }
+
+  generateDay = (number, start) => {
+    for (let i = start; i < number + start; i++) {
+      this.state.tabDate.push(  <li key={i+"-days"}>{i}</li>)
+    }
+    for (let i = 1; i < 12; i++) {
+      this.state.tabDate.push(  <li key={i+"-days"}>{i}</li>)
+    }
+    return this.state.tabDate;
+  };
 
   render() {
     return (
@@ -25,11 +37,20 @@ class Calendar extends React.Component {
         </button>
         {this.state.openFav === true ? (
           <div className="dateWrapper">
-            <div className="day">
-              <p> Ven - Sam - Dim - Lun - Mar - Mer - Jeu </p>
-              <p> 26 - 27 - 28 - 29 - 30 - 31 - 1 </p>
-              <p> 2 - 3 - 4 -5 - 6 - 7 - 8 </p>
-              <p> 9 - 10 - 11 </p>
+
+            <div className="day--container">
+              <ul className="weekdays">
+                <li>Ven</li>
+                <li>Sam</li>
+                <li>Dim</li>
+                <li>Lun</li>
+                <li>Mar</li>
+                <li>Mer</li>
+                <li>Jeu</li>
+              </ul>
+              <ul className="days">
+                {this.generateDay(6, 26)}
+              </ul>
             </div>
           </div>
         ) : null}
