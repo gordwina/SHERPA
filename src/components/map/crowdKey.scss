@@ -19,4 +19,11 @@
   i {
     margin-right: 8px;
   }
+  #green, #red, #yellow{
+  border-radius: 25px;
+  padding: 2px; 
+  }
+  #green{background: $green ;}
+  #red{background: $red ;}
+  #yellow{background: $yellow;}
 }
