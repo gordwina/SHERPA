@@ -1,13 +1,12 @@
 import React from "react";
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 import "./gmap.scss";
-import icon_JO_stadium from "../../asset/icon_JO_stadium.svg";
-import police_icon from "../../asset/police_icon.svg";
-import hospital from "../../asset/hospital.svg";
-import pompiers_icon from "../../asset/pompiers_icon.svg";
 import stade from "../../asset/stade.png"
 import axios from 'axios';
-
+import PoliceStations from"../../asset/Imgmap/PoliceStations.svg";
+import FireStation from"../../asset/Imgmap/FireStation.svg";
+import Emergency from "../../asset/Imgmap/Emergency.svg";
+import Olympics2024 from "../../asset/Imgmap/Olympics2024.svg"; 
 export class Gmap extends React.Component {
   constructor(props) {
     super(props);
@@ -427,10 +426,10 @@ export class Gmap extends React.Component {
         //style={mapStyles}
         initialCenter={{ lat: 48.8583701, lng: 2.2944813 }}
       >  
-        {this.displayMarker(this.state.stadium, icon_JO_stadium)}
-        {this.displayMarker(this.state.hopital, hospital)}
-        {this.displayMarker(this.state.pompier, pompiers_icon)}
-        {this.displayMarker(this.state.police, police_icon)} 
+        {this.displayMarker(this.state.stadium, Olympics2024)}
+        {this.displayMarker(this.state.hopital, Emergency)}
+        {this.displayMarker(this.state.pompier, FireStation)}
+        {this.displayMarker(this.state.police, PoliceStations)} 
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
@@ -454,8 +453,8 @@ export default GoogleApiWrapper({
   apiKey: "AIzaSyC9t3-AiZzfZ7zOWgAChLf7-3jQ8PPPTgY"
 })(Gmap);
 
-const InfoStyle = {
+/* const InfoStyle = {
   width: '100px',
   height: '100px',
   background :'red'
-}
+} */
