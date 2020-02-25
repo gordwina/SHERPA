@@ -5,14 +5,20 @@ import icon_JO_stadium from "../../asset/icon_JO_stadium.svg";
 import police_icon from "../../asset/police_icon.svg";
 import hospital from "../../asset/hospital.svg";
 import pompiers_icon from "../../asset/pompiers_icon.svg";
-
+import stade from "../../asset/stade.png"
+import axios from 'axios'
 export class Gmap extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
+      //openInfo = false,
+
       stadium: [
-        { lat: 48.8473435, lng: 2.2487285, name: "" },
+        // { lat: 48.8473435, lng: 2.2487285, name: "" },
         {
           latitude: 48.9244592,
           longitude: 2.3601645,
@@ -269,7 +275,7 @@ export class Gmap extends React.Component {
           longitude: 2.3650429
         },
         {
-          id: "23",
+          id: "230",
           nome: "C.H.G ST DENIS (HOP . CASANOVA)",
           latitude: 48.9299208,
           longitude: 2.3607143,
@@ -326,7 +332,9 @@ export class Gmap extends React.Component {
           name: "Colombes Commissariat "
         },
 
-        { latitude: 48.8382677, longitude: 2.2864206, name: "Paris 15 comico" },
+        { latitude: 48.8382677,
+           longitude: 2.2864206, 
+           name: "Paris 15 comico" },
         {
           latitude: 48.8015674,
           longitude: 2.1166273,
@@ -337,111 +345,85 @@ export class Gmap extends React.Component {
           longitude: 2.0478015,
           name: "Guyancourt Comico"
         },
-        { latitude: 48.8755393, longitude: 2.3024263, name: "Paris 8  comico" }
+        { latitude: 48.8755393, 
+          longitude: 2.3024263, 
+          name: "Paris 8  comico" }
       ]
     };
   }
 
-  displayMarkersStadium = () => {
-    return this.state.stadium.map(stadium => {
+  componentDidMount = () => {
+    axios.get('http://vps791823.ovh.net/api/casernes_pompiers')
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      
+      console.log(error);
+    })
+  }
+   
+  onMarkerClick = (props, marker, e) => {
+    console.log('YOUUUUUUPA', marker)
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+  }
+    
+
+  displayMarker = (items, icon) => {
+    return items.map((items, index) => {
       return (
         <Marker
-          id={stadium.name}
-          key={stadium}
+          key={index}
+          name={items.name}
           position={{
-            lat: stadium.latitude,
-            lng: stadium.longitude
+            lat: items.latitude,
+            lng: items.longitude
           }}
           icon={{
-            url: icon_JO_stadium
+            url: icon
           }}
-          onClick={() => console.log(stadium.name)}
+          onClick={this.onMarkerClick}
+       
         >
-          <InfoWindow
-            show={stadium.name}
-            visible={true}
-            position={{
-              lat: stadium.latitude,
-              lng: stadium.longitude
-            }}
-          >
-            <div>COUCOU</div>
-          </InfoWindow>
+
         </Marker>
       );
     });
   };
-  displayMarkersPolice = () => {
-    return this.state.police.map(police => {
-      return (
-        <Marker
-          id={police.name}
-          key={police}
-          position={{
-            lat: police.latitude,
-            lng: police.longitude
-          }}
-          icon={{
-            url: police_icon
-          }}
-          onClick={() => console.log(police.name + " " + police.latitude)}
-        ></Marker>
-      );
-    });
-  };
 
-  displayMarkersHopital = () => {
-    return this.state.hopital.map(hopital => {
-      return (
-        <Marker
-          id={hopital.name}
-          key={hopital}
-          position={{
-            lat: hopital.latitude,
-            lng: hopital.longitude
-          }}
-          icon={{
-            url: hospital
-          }}
-          onClick={() => console.log(hopital.name + " " + hopital.latitude)}
-        ></Marker>
-      );
-    });
-  };
 
-  displayMarkersPompier = () => {
-    return this.state.pompier.map(pompier => {
-      return (
-        <Marker
-          id={pompier.name}
-          key={pompier}
-          position={{
-            lat: pompier.latitude,
-            lng: pompier.longitude
-          }}
-          icon={{
-            url: pompiers_icon
-          }}
-          onClick={() => console.log(pompier.name + " " + pompier.latitude)}
-        ></Marker>
-      );
-    });
-  };
 
   render() {
     return (
       <Map
         className="gmapContainer"
         google={this.props.google}
-        onClick={this.onMapClicked}
         zoom={12}
-        style={mapStyles}
+        //style={mapStyles}
         initialCenter={{ lat: 48.8583701, lng: 2.2944813 }}
-      >
-        {this.displayMarkersStadium()}
-        {this.displayMarkersPolice()}
-        {this.displayMarkersHopital()}
-        {this.displayMarkersPompier()}
+      >  
+        {this.displayMarker(this.state.stadium, icon_JO_stadium)}
+        {this.displayMarker(this.state.hopital, hospital)}
+        {this.displayMarker(this.state.pompier, pompiers_icon)}
+        {this.displayMarker(this.state.police, police_icon)} 
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+          style= {{background: 'red'}}
+          >
+            <div  style= {{padding: '5px', display: 'flex', flexDirection: 'row'}}>
+              <img src={stade} alt="Logo" />
+              <div style= {{marginLeft: '15px'}}>
+                <p style= {{fontWeight: '700', textAlign: 'left', marginTop:'20px'}}>{this.state.selectedPlace.name}</p>
+                <p style= {{textAlign: 'left', marginTop: '5px', marginBottom: '5px'}}> <i className="icon-people"></i> 290299292929</p>
+                <a  style= {{color: '#237EFF',  fontSize:'12px'}} href='/informations'> voir la fiche</a>
+              </div>
+            </div>
+        </InfoWindow>
       </Map>
     );
   }
@@ -451,16 +433,8 @@ export default GoogleApiWrapper({
   apiKey: "AIzaSyC9t3-AiZzfZ7zOWgAChLf7-3jQ8PPPTgY"
 })(Gmap);
 
-const mapStyles = {
-  width: "100%",
-  height: "100%",
-  //marginTop: '-60px',
-  zIndex: "-5",
-  overflow: "hidden"
-};
-
-const infoWindowStyle = {
-  height: "50px",
-  width: "50px",
-  backgroundColor: "red"
-};
+const InfoStyle = {
+  width: '100px',
+  height: '100px',
+  background :'red'
+}

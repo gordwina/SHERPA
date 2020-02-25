@@ -2,6 +2,7 @@ import React from "react";
 import "./Deepsearch.scss";
 import "../../style/colors.scss";
 import "../../style/font.scss";
+import "../../style/icon/style.scss";
 import FileLink from "../file-link/File-link";
 import Calendar from "../Calendar/Calendar";
 class Deepsearch extends React.Component {
@@ -17,17 +18,52 @@ class Deepsearch extends React.Component {
         {
           name: "stade de france",
           capacity: 300,
-          date: "jeudi soir"
+          date: "jeudi",
+          chroni :"soirée",
+          crowd : "affluence"
         },
         {
           name: "palais royal",
           capacity: 300,
-          date: "mardi matin"
+          date: "mardi",
+          chroni :"matinée",
+          crowd : "affluence"
         },
         {
           name: "teddy",
           capacity: 300,
-          date: "jeudi nuit"
+          date: "jeudi",
+          chroni :"soirée",
+          crowd : "affluence"
+
+        },
+        {
+          name: "alice",
+          capacity: 300,
+          date: "jeudi",
+          chroni :"matinée",
+          crowd : "1affluence"
+        },
+        {
+          name: "youpla",
+          capacity: 300,
+          date: "vendredi ",
+          chroni :"après-midi",
+          crowd : "affluence"
+        },
+        {
+          name: "yuoupla",
+          capacity: 300,
+          date: "vendredi ",
+          chroni :"après-midi",
+          crowd : "affluence"
+        },
+        {
+          name: "yaapoupla",
+          capacity: 300,
+          date: "vendredi ",
+          chroni :"après-midi",
+          crowd : "affluence"
         }
       ]
     };
@@ -37,7 +73,7 @@ class Deepsearch extends React.Component {
   }
 
   handleClick = e => {
-    this.setState({ searchList: e.target.value });
+    this.setState({ searchList: e.target.value.toLowerCase() });
     console.log(this.state.searchList);
   };
 
@@ -69,13 +105,13 @@ class Deepsearch extends React.Component {
       <div className="DeepSearch">
         <button className="SearchButton" onClick={this.onSearching}>
           {/* <button className="SearchButton" onClick={() => this.setState({ hasSearched: true })} >  */}
-          <i className="icon-magn_icon"></i>
+          <i className="icon-magn"></i>
           Rechercher un lieu
         </button>
         {this.state.hasSearched === true ? (
           <div className="DeepSearchContainer">
             <div className="SearchHelp">
-              <i className="icon-magn_icon"></i>
+              <i className="icon-magn"></i>
               <input
                 id="search"
                 placeholder="Rechercher"
@@ -84,19 +120,19 @@ class Deepsearch extends React.Component {
                 onKeyUp={e => this.pushInput(e)}
               ></input>
               <button onClick={this.onRemoving}>
-                <i className="icon-remove_icon"></i>
+                <i className="icon-remove"></i>
               </button>
             </div>
 
             <div className="SearchBar">
               <div className="DateSearch">
                 <p>
-                  20/25/2024 <i className="icon-arrow_icon"></i>
+                  20/25/2024 <i className="icon-arrow"></i>
                 </p>
               </div>
 
               <div className="DeploydSearch">
-                <i className="icon-magn_icon"></i>
+                <i className="icon-magn"></i>
               </div>
             </div>
             <hr />
@@ -108,6 +144,8 @@ class Deepsearch extends React.Component {
                       location={val.name}
                       capacity={val.capacity}
                       date={val.date}
+                      chroni={val.chroni}
+                      crowd = {val.crowd}
                     />
                   );
                 }

@@ -19,16 +19,19 @@ class FileLink extends React.Component {
             <div className="FileLinkInformation">
               <p className="FileLinkLocation">
                 {" "}
-                <strong>{this.props.location}</strong>{" "}
+                <strong>{this.props.location}</strong>
               </p>
               <p className="FileLinkCapacity">
-                <i className="icon-people_icon"></i> {this.props.capacity}{" "}
+                <i className="icon-people"></i> {this.props.capacity}{" "} capacité
               </p>
-              <p className="FileLinkDistance">O 100m </p>
+              <p className="FileLinkCrowd"> <i id="yellow" className="icon-level-yellow"></i>{this.props.crowd} </p>
             </div>
             <div className="FileLinkPlus">
-              <i className="icon-star_icon"></i>
-              <p className="FileLinkSchedule">{this.props.date}</p>
+              <i className="icon-favori"></i>
+              <div className="FileLinkScheduleX">
+                <p  className="FileLinkSchedule">{this.props.date}</p> 
+                <p className="FileLinkSchedule">{this.props.chroni}</p>
+                </div>
             </div>
           </div>
         </a>

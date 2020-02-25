@@ -2,10 +2,15 @@
 @import "../../style/icon/style.scss";
 .DeepSearch{
   width: 429px;
-  //height: 650px;
+  height: 650px;
+  margin-left: 40px;
+  margin-top: 80px;
+  z-index: 3;
+  position: absolute;
+  
+
   .DeepSearchContainer { 
     margin-top: -40px;
-    margin-left: 20px;
     background: #3a506b;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 3px; 
@@ -17,10 +22,9 @@
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    //background: $red;
     margin-top: 20px;
 
-    .icon-magn_icon {
+    .icon-magn {
       height: 50px;
       width: 50px;
       color: $white;
@@ -50,7 +54,7 @@
       } */
     button {
       margin-left: 7%;
-      .icon-remove_icon {
+      .icon-remove {
         color: $white;
         &:hover {
           color: $grey;
@@ -67,9 +71,8 @@
     height: 48px;
     background-color: $blurBlue;
     margin-left: 15px;
-    // margin-top: 22px;
     border-radius: 3px;
-    .icon-arrow_icon {
+    .icon-arrow {
       font-size: 9px;
     }
 
@@ -143,7 +146,7 @@
       &:hover {
         background-color: $lightBlue;
       }
-      .icon-magn_icon {
+      .icon-magn {
         font-size: 20px;
         color: $white;
         margin-left: 13px;
@@ -166,9 +169,8 @@
   .FileLinkWrapper {
     margin-top: 10px;
     width: 429px;
-    //background-color: red;
     height: 450px;
     overflow: scroll;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
   }
 }

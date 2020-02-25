@@ -1,11 +1,11 @@
 @import '../../style/indexStyle.scss';
 .gmapContainer {
-    height: 93%!important;
-    margin-top:-60px;
-    z-index: -5!important;
-}
+    height: 100vh !important;
+    //margin-top:-60px;
+    z-index: 1;
+} 
 
-.googleSmall {
+.googleSmall { 
     max-height: 50% !important;
     max-width: 790px !important;
 }

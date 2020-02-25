@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       <Top></Top>
       <Deepsearch></Deepsearch>
-      <Calendar></Calendar>
-      <MapKey></MapKey>
-      <CrowdKey></CrowdKey>
-      <Gmap usingClass={"google"}></Gmap>
+      <Calendar></Calendar> 
+      <MapKey></MapKey> 
+      <CrowdKey></CrowdKey> 
+     <Gmap></Gmap> 
     </div>
   );
 }
