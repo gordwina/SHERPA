@@ -3,7 +3,7 @@ import "./Deepsearch.scss";
 import "../../style/colors.scss";
 import "../../style/font.scss";
 import FileLink from "../file-link/File-link";
-
+import Calendar from "../Calendar/Calendar";
 class Deepsearch extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +12,7 @@ class Deepsearch extends React.Component {
       searching: false,
       searchValue: "",
       searchList: "",
+      openCalendar: false,
       values: [
         {
           name: "stade de france",
@@ -57,6 +58,11 @@ class Deepsearch extends React.Component {
     this.setState({ searching: true });
     this.setState({ searchValue: value });
   }
+
+  openCalendar = () => {
+    this.setState({openCalendar: true})
+    console.log('ok');
+  };
 
   render() {
     return (

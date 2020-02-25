@@ -16,8 +16,8 @@ import SearchLeft from "../searching/searchLeft";
 
 // assets
 import capacity from "../../asset/capacity.svg";
-import affluence from "../../asset/affluence.svg";
 import stade from "../../asset/stade.png";
+import house from '../../asset/house.svg'
 class Informations extends React.Component {
   constructor(props) {
     super(props);
@@ -43,10 +43,12 @@ class Informations extends React.Component {
                   <p>Capacité totale</p>
                 </div>
                 <div className="affluence-picto">
-                  <img src={affluence} alt="affluence" />
+                 <div className="affluence">
+                  3
+                 </div>
                 </div>
                 <div className="affluence-content">
-                  <p class="bold">Affluence moyenne</p>
+                  <p class="bold">Sécur-score</p>
                   <p>Entre 10k et 20k </p>
                 </div>
               </div>
@@ -55,30 +57,21 @@ class Informations extends React.Component {
               <h2>Zone de repli à proximité</h2>
               <div className="zones">
                 <div className="zones-item">
-                  <div className="item-name">École Marcelin Berthelot</div>
+                  <div className="item-name"><i className="icon-zone_repli"></i>École Marcelin Berthelot</div>
                   <div className="item-time">2 min </div>
                   <div className="item-capacity">capacité de 600 personnes</div>
                 </div>
                 <div className="zones-item">
-                  <div className="item-name">École Marcelin Berthelot</div>
+                  <div className="item-name"><i className="icon-safety-fire-extinguisher-2"></i>École Marcelin Berthelot</div>
                   <div className="item-time">2 min </div>
                   <div className="item-capacity">capacité de 600 personnes</div>
                 </div>
                 <div className="zones-item">
-                  <div className="item-name">École Marcelin Berthelot</div>
+                  <div className="item-name"><i className="icon-Group-5"></i>École Marcelin Berthelot</div>
                   <div className="item-time">2 min </div>
                   <div className="item-capacity">capacité de 600 personnes</div>
                 </div>
-                <div className="zones-item">
-                  <div className="item-name">École Marcelin Berthelot</div>
-                  <div className="item-time">2 min </div>
-                  <div className="item-capacity">capacité de 600 personnes</div>
-                </div>
-                <div className="zones-item">
-                  <div className="item-name">École Marcelin Berthelot</div>
-                  <div className="item-time">2 min </div>
-                  <div className="item-capacity">capacité de 600 personnes</div>
-                </div>
+
               </div>
             </div>
           </div>
@@ -113,7 +106,6 @@ class Informations extends React.Component {
         </div>
         <div className="information__right">
           <div className="information__right--top"></div>
-
           <div className="information__right--bottom">
             <ResponsiveStream
               data={specData}
