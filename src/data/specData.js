@@ -54,7 +54,7 @@ export default(
     {
       "Affluence": 19000,
     },
-    
-    
+
+
   ]
 )
