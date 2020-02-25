@@ -7,32 +7,34 @@ class Calendar extends React.Component {
     this.state = {
       openFav: false
     };
-    this.onSearching = this.onSearching.bind(this);
   }
 
-  onSearching() {
-    this.setState({
-      openFav: true
-    });
+/*   componentWillMount(){
+    document.addEventListener('mousedown', this.handleClick,false);
+  };
+  componentWinlUbMount(){
+    document.removeEventListener('mousedown', this.handleClick,false);
+  
   }
+handleClick =(e) => { 
+  if (this.componentDidUpdate.contains(e.target)){
+    return 
+  }
+} */
 
   render() {
     return (
       <div className="CalendarContainer">
-        {/*  @todo:alice calenddrier va devenir une modale */}
-        <button className="btn calendar" onClick={this.onSearching}>
+        <button className="btn calendar" >
           calendrier <i className="icon-calendar"></i>
         </button>
-        {this.state.openFav === true ? (
-          <div className="dateWrapper">
-            <div className="day">
-              <p> Ven - Sam - Dim - Lun - Mar - Mer - Jeu </p>
-              <p> 26 - 27 - 28 - 29 - 30 - 31 - 1 </p>
-              <p> 2 - 3 - 4 -5 - 6 - 7 - 8 </p>
-              <p> 9 - 10 - 11 </p>
+     
+          {/*  <div ref={node => this.node} className="dateWrapper" >
+            <div className="day"> 
+            
             </div>
           </div>
-        ) : null}
+    */}
       </div>
     );
   }

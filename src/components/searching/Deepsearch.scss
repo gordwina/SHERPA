@@ -4,7 +4,11 @@
   width: 429px;
   height: 650px;
   margin-left: 40px;
-  margin-top: 20px;
+  margin-top: 80px;
+  z-index: 3;
+  position: absolute;
+  
+
   .DeepSearchContainer { 
     margin-top: -40px;
     background: #3a506b;
