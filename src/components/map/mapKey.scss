@@ -1,13 +1,14 @@
 @import "../../style/indexStyle.scss";
 .mapKeyContainer {
-  width: 378px;
+  width: 390px;
   height: 102px;
   background: $white;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   position: absolute;
   top: 84%;
-  left: 40%;
+  right: 550px;
+  z-index: 3;
 }
 
 .statusLeft,
@@ -29,4 +30,11 @@
 .statusRight {
   margin-left: 225px;
   margin-top: -60px;
+}
+
+@media (max-width: 950px){
+  .mapKeyContainer {
+    margin-right: -400px;
+    margin-top: -124px;
+  }
 }

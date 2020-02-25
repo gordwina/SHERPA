@@ -19,8 +19,8 @@ class Top extends React.Component {
 
         <div className="buttonWrapper">
           <Favoris></Favoris> 
-          <a href="/login">
-            <button className="btn logoutButton">Déconnexion</button>
+          <a href="/login"> 
+            <button className="btn logoutButton">Déconnexion <i className="icon-out"></i></button>
           </a>
         </div>
       </div>

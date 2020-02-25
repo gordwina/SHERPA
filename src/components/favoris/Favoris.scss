@@ -6,7 +6,7 @@
 
   .btn.favoris {
     border:none;
-    .icon-arrow_icon {
+    .icon-favori{
       margin-left: 2px;
       font-size: 9px;
     }
@@ -22,11 +22,12 @@
     padding-bottom : 20px;
     right: 190px;
     top: 70px;
+    background: $darkWhite ;
     border: solid #F2F2F2 1px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 3px;
     overflow: scroll;
-
+    z-index : 5;
     .letMusicPlay{
       position: fixed;
       right: 258px;

@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import "./crowdKey.scss";
 
 class CrowdKey extends React.Component {
@@ -12,15 +11,15 @@ class CrowdKey extends React.Component {
       <div className="crowdKeyContainer">
         <div className="crowdKeyWrapper">
           <p>
-            <i className="icon-red_Ellipse"></i>Affluence forte (+ 20k
+            <i id="red" className="icon-level-red"></i>Affluence forte (+ 20k
             personnes)
           </p>
           <p>
-            <i className="icon-yellow_Ellipse"></i>Affluence moyenne (10k - 20k
+            <i id="yellow" className="icon-level-yellow"></i>Affluence moyenne (10k - 20k
             personnes)
           </p>
           <p>
-            <i className="icon-Green_Ellipse"></i> Affluence faible (- 10k
+            <i  id="green" className="icon-level-green-2"></i> Affluence faible (- 10k
             personnes)
           </p>
         </div>

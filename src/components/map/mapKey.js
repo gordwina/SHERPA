@@ -13,21 +13,21 @@ class MapKey extends React.Component {
         <div className="statusLeft">
           <p>
             {" "}
-            <i className="icon-safety-fire-extinguisher-2"></i> Casernes de
+            <i className="icon-pompier"></i> Casernes de
             Pompier{" "}
           </p>
           <p>
             {" "}
-            <i className="icon-police"></i> Caserne de Police
+            <i className="icon-polic"></i> Caserne de Police
           </p>
         </div>
 
         <div className="statusRight">
           <p>
-            <i className="icon-Group-5"></i> Hopitaux
+            <i className="icon-hopital"></i> Hopitaux
           </p>
           <p>
-            <i className="icon-zone_repli"></i>Zone de Repli
+            <i className="icon-repli"></i>Zone de Repli
           </p>
         </div>
       </div>

@@ -16,6 +16,16 @@
     }
 }
 
+.btn .calendar {
+    .icon-calendar {
+        &:hover {
+            color: $yellow ;
+            transition: transform .5s ease;
+            transition-duration: 1s;        
+        }
+    }
+}
+
 button{
     background: transparent;
     border: none; 
@@ -29,10 +39,8 @@ button{
     width: 206px;
     height: 40px;
     outline:  none;
-    margin-left: 20px;
-    margin-top: 20px;
     color: $white;
-    .icon-magn_icon {
+    .icon-magn {
         margin-right : 7px;
     }
     &:hover {
@@ -70,6 +78,10 @@ input[type=text] {
         color: $white;
         transition: transform .5s ease;
         transition-duration: 1s;        
+    }
+    .icon-logout{
+        color: $red;
+        
     }
 
 }
