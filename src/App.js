@@ -17,7 +17,7 @@ function App() {
       <Calendar></Calendar> 
       <MapKey></MapKey> 
       <CrowdKey></CrowdKey> 
-     <Gmap></Gmap> 
+     <Gmap zoom={12}></Gmap>
     </div>
   );
 }

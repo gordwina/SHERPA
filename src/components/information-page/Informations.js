@@ -18,6 +18,7 @@ import SearchLeft from "../searching/searchLeft";
 import capacity from "../../asset/capacity.svg";
 import stade from "../../asset/stade.png";
 import house from '../../asset/house.svg'
+import Gmap from "../map/gmap";
 class Informations extends React.Component {
   constructor(props) {
     super(props);
@@ -105,7 +106,9 @@ class Informations extends React.Component {
           </div>
         </div>
         <div className="information__right">
-          <div className="information__right--top"></div>
+          <div className="information__right--top">
+            <Gmap usingClass={"googleSmall"} zoom={10}> </Gmap>
+          </div>
           <div className="information__right--bottom">
             <ResponsiveStream
               data={specData}

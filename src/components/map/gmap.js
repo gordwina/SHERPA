@@ -6,7 +6,6 @@ import police_icon from "../../asset/police_icon.svg";
 import hospital from "../../asset/hospital.svg";
 import pompiers_icon from "../../asset/pompiers_icon.svg";
 import stade from "../../asset/stade.png"
-import axios from 'axios'
 export class Gmap extends React.Component {
   constructor(props) {
     super(props);
@@ -352,16 +351,7 @@ export class Gmap extends React.Component {
     };
   }
 
-  componentDidMount = () => {
-    axios.get('http://vps791823.ovh.net/api/casernes_pompiers')
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      
-      console.log(error);
-    })
-  }
+
    
   onMarkerClick = (props, marker, e) => {
     console.log('YOUUUUUUPA', marker)
@@ -400,9 +390,9 @@ export class Gmap extends React.Component {
   render() {
     return (
       <Map
-        className="gmapContainer"
+        className={"gmapContainer " + this.props.usingClass}
         google={this.props.google}
-        zoom={12}
+        zoom={this.props.zoom}
         //style={mapStyles}
         initialCenter={{ lat: 48.8583701, lng: 2.2944813 }}
       >  

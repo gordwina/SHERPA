@@ -144,13 +144,14 @@
 }
 .information__right {
   width: 40%;
-
   height: 100%;
 
   .information__right--top {
+    margin-top: 20px;
     height: 50%;
     width: 100%;
-    // background: violet;
+    overflow: hidden;
+    margin-right: 10px;
   }
 
   .information__right--bottom {

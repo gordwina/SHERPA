@@ -38,9 +38,9 @@
         border-radius: 25px;
         padding: 2px; 
     }
-    #green{background: $green ;}
-    #red{background: $red ;}
-    #yellow{background: $yellow;}
+    #green, .green {background: $green ;}
+    #red, .red {background: $red ;}
+    #yellow, .yellow{background: $yellow;}
     }
 }
 

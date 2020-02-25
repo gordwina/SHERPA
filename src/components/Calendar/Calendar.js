@@ -10,7 +10,8 @@ class Calendar extends React.Component {
       openFav: false,
       tabDate : [],
       mouth: false,
-      date: "Juillet - Aout 2024 "
+      date: "Juillet - Aout 2024 ",
+      listDates : []
     };
     this.onSearching = this.onSearching.bind(this);
   }
@@ -22,18 +23,30 @@ class Calendar extends React.Component {
     });
   }
 
-  componentDidMount() {
-    axios.get('/user?ID=12345')
+  getAffluence = (id) => {
+    axios.get('http://vps791823.ovh.net/api/dates/' + id)
         .then(function (response) {
-          // handle success
-          console.log(response);
+          let affluence = response.data.totalAffluenceJournalier;
+          if(affluence > 350000) {
+            document.getElementById(id).classList.add('icon-level-red')
+          } else if (affluence > 260000) {
+            document.getElementById(id).classList.add('icon-level-yellow')
+          } else {
+            document.getElementById(id).classList.add('icon-level-green-2')
+          }
         })
         .catch(function (error) {
           // handle error
           console.log(error);
         })
-  }
+  };
 
+  generateDays = () => {
+    for (let i = 1; i <= 17; i++) {
+      this.state.listDates.push(<li><div>{i}<i id={i} className="round-affulence">{this.getAffluence(i)}</i></div></li>)
+    }
+    return this.state.listDates
+  };
   render() {
     return (
       <div className="CalendarContainer">
@@ -59,26 +72,9 @@ class Calendar extends React.Component {
                 <li>Mer</li>
                 <li>Jeu</li>
               </ul>
-              <ul className="days">
-                <li><div>26 <span className="round-affulence"></span></div></li>
-                <li><div>27</div></li>
-                <li><div>28</div></li>
-                <li><div>29</div></li>
-                <li><div>30</div></li>
-                <li><div>31</div></li>
-                <li><div className={"special"}>1</div></li>
-                <li><div className={"special"}>2</div></li>
-                <li><div className={"special"}>3</div></li>
-                <li><div className={"special"}>4</div></li>
-                <li><div className={"special"}>5</div></li>
-                <li><div className={"special"}>6</div></li>
-                <li><div className={"special"}>7</div></li>
-                <li><div className={"special"}>8</div></li>
-                <li><div className={"special"}>9</div></li>
-                <li><div className={"special"}>10</div></li>
-                <li><div className={"special"}>11</div></li>
+              <ul className="days" id="days">
+                {this.generateDays()}
               </ul>
-
             </div>
           </div>
         ) : null}

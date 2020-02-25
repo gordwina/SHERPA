@@ -50,6 +50,7 @@
     background: white;
     margin: 0;
     height: calc(100% - 30px);
+    margin-left: 6px;
 }
 
 .days li {
@@ -75,7 +76,7 @@
 
     div {
         position: absolute;
-        left: 8px;
+        left: 9px;
         top:4px;
         display: flex;
         flex-direction: column;
@@ -86,7 +87,6 @@
     .round-affulence {
         height: 10px;
         width: 10px;
-
         border-radius: 100px;
         margin-top: 8px;
     }
@@ -100,8 +100,6 @@
     .more {
         background: #FF5F72;
     }
-
-
 
     .special {
         left:13px;
