@@ -2,6 +2,7 @@ import React from "react";
 import "./Calendar.scss";
 import next_mouth from '../../asset/mois--change.svg'
 import previous_mouth from '../../asset/mois-previous.svg'
+import axios from 'axios';
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
@@ -19,6 +20,18 @@ class Calendar extends React.Component {
     this.setState({
       openFav: true
     });
+  }
+
+  componentDidMount() {
+    axios.get('/user?ID=12345')
+        .then(function (response) {
+          // handle success
+          console.log(response);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
   }
 
   render() {
@@ -47,23 +60,23 @@ class Calendar extends React.Component {
                 <li>Jeu</li>
               </ul>
               <ul className="days">
-                <li><span>26</span></li>
-                <li><span>27</span></li>
-                <li><span>28</span></li>
-                <li><span>29</span></li>
-                <li><span>30</span></li>
-                <li><span>31</span></li>
-                <li><span className={"special"}>1</span></li>
-                <li><span className={"special"}>2</span></li>
-                <li><span className={"special"}>3</span></li>
-                <li><span className={"special"}>4</span></li>
-                <li><span className={"special"}>5</span></li>
-                <li><span className={"special"}>6</span></li>
-                <li><span className={"special"}>7</span></li>
-                <li><span className={"special"}>8</span></li>
-                <li><span className={"special"}>9</span></li>
-                <li><span className={"special"}>10</span></li>
-                <li><span className={"special"}>11</span></li>
+                <li><div>26 <span className="round-affulence"></span></div></li>
+                <li><div>27</div></li>
+                <li><div>28</div></li>
+                <li><div>29</div></li>
+                <li><div>30</div></li>
+                <li><div>31</div></li>
+                <li><div className={"special"}>1</div></li>
+                <li><div className={"special"}>2</div></li>
+                <li><div className={"special"}>3</div></li>
+                <li><div className={"special"}>4</div></li>
+                <li><div className={"special"}>5</div></li>
+                <li><div className={"special"}>6</div></li>
+                <li><div className={"special"}>7</div></li>
+                <li><div className={"special"}>8</div></li>
+                <li><div className={"special"}>9</div></li>
+                <li><div className={"special"}>10</div></li>
+                <li><div className={"special"}>11</div></li>
               </ul>
 
             </div>

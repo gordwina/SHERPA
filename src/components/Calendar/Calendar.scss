@@ -16,6 +16,8 @@
     right: 22px;
     top: 46px;
     box-shadow: #0000002e 0 0 20px 7px;
+    overflow: hidden;
+    border-radius: 3px;
 }
 
 .day--container {
@@ -38,6 +40,7 @@
     text-align: center;
     height: 20px;
     color: white;
+
 
 }
 
@@ -62,18 +65,42 @@
     width: 30px;
     height: 30px;
     position: relative;
-    //border: 2px solid #FFC01F;
+
 
     &:hover {
         background: #3A506B;
         color: white;
     }
 
-    span {
+    div {
         position: absolute;
         left: 8px;
         top:4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
+
+    .round-affulence {
+        height: 10px;
+        width: 10px;
+
+        border-radius: 100px;
+        margin-top: 8px;
+    }
+    .less {
+        background: #5BC0BE;
+    }
+    .middle {
+        background: #FFC01F;
+    }
+
+    .more {
+        background: #FF5F72;
+    }
+
+
 
     .special {
         left:13px;
