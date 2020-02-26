@@ -30,7 +30,7 @@ class Favoris extends React.Component {
     return (
       <div className="FavorisContainer">
         <button className="btn favoris" onClick={this.onSearching}>
-          mes favoris <i className="icon-arrow_icon"></i>
+          Mes favoris <i className="icon-arrow"></i>
         </button> 
 
         {this.state.openFav === true ? ( 
