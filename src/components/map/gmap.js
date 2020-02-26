@@ -47,7 +47,7 @@ export class Gmap extends React.Component {
     this.request('police', url.police);
     this.request('stadium', url.stadium);
     this.request('pompier', url.pompier);
-    this.request('replis', url.pompier)
+    this.request('replis', url.replis)
   }
 
   request = (what, url) => {
@@ -76,7 +76,6 @@ export class Gmap extends React.Component {
     }
   } */
   onMarkerClick = (props, marker, e) => {
-    console.log(props.type);
    {
       this.setState({
         selectedPlace: props,
