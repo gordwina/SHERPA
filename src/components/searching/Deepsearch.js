@@ -169,7 +169,7 @@ class Deepsearch extends React.Component {
                       location={val.nom}
                       nom={val.nom}
                       capacity={val.capacite}
-                      crowd={val.epreuves.maxDayAffluence}
+                      //crowd={val.epreuves.maxDayAffluence}
                       // date={val.date}
                       // chroni={val.chroni}
                       // crowd = {val.crowd}
