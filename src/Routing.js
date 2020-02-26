@@ -15,7 +15,7 @@ export default function Routing() {
 
           <Route component={App} path="/home"></Route>
 
-          <Route component={Informations} path="/informations"></Route>
+          <Route component={Informations} path="/informations/api/stades/:id"></Route>
 
           <Route component={Favoris} path="/favoris"></Route>
         </Switch>

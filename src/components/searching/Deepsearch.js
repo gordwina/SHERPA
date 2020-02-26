@@ -5,6 +5,8 @@ import "../../style/font.scss";
 import "../../style/icon/style.scss";
 import FileLink from "../file-link/File-link";
 import Calendar from "../Calendar/Calendar";
+import axios from 'axios'
+
 class Deepsearch extends React.Component {
   constructor(props) {
     super(props);
@@ -14,62 +16,74 @@ class Deepsearch extends React.Component {
       searchValue: "",
       searchList: "",
       openCalendar: false,
-      values: [
-        {
-          name: "stade de france",
-          capacity: 300,
-          date: "jeudi",
-          chroni :"soirée",
-          crowd : "affluence"
-        },
-        {
-          name: "palais royal",
-          capacity: 300,
-          date: "mardi",
-          chroni :"matinée",
-          crowd : "affluence"
-        },
-        {
-          name: "teddy",
-          capacity: 300,
-          date: "jeudi",
-          chroni :"soirée",
-          crowd : "affluence"
+      values: [],
+      //   {
+      //     name: "stade de france",
+      //     capacity: 300,
+      //     date: "jeudi",
+      //     chroni :"soirée",
+      //     crowd : "affluence"
+      //   },
+      //   {
+      //     name: "palais royal",
+      //     capacity: 300,
+      //     date: "mardi",
+      //     chroni :"matinée",
+      //     crowd : "affluence"
+      //   },
+      //   {
+      //     name: "teddy",
+      //     capacity: 300,
+      //     date: "jeudi",
+      //     chroni :"soirée",
+      //     crowd : "affluence"
 
-        },
-        {
-          name: "alice",
-          capacity: 300,
-          date: "jeudi",
-          chroni :"matinée",
-          crowd : "1affluence"
-        },
-        {
-          name: "youpla",
-          capacity: 300,
-          date: "vendredi ",
-          chroni :"après-midi",
-          crowd : "affluence"
-        },
-        {
-          name: "yuoupla",
-          capacity: 300,
-          date: "vendredi ",
-          chroni :"après-midi",
-          crowd : "affluence"
-        },
-        {
-          name: "yaapoupla",
-          capacity: 300,
-          date: "vendredi ",
-          chroni :"après-midi",
-          crowd : "affluence"
-        }
-      ]
+      //   },
+      //   {
+      //     name: "alice",
+      //     capacity: 300,
+      //     date: "jeudi",
+      //     chroni :"matinée",
+      //     crowd : "1affluence"
+      //   },
+      //   {
+      //     name: "youpla",
+      //     capacity: 300,
+      //     date: "vendredi ",
+      //     chroni :"après-midi",
+      //     crowd : "affluence"
+      //   },
+      //   {
+      //     name: "yuoupla",
+      //     capacity: 300,
+      //     date: "vendredi ",
+      //     chroni :"après-midi",
+      //     crowd : "affluence"
+      //   },
+      //   {
+      //     name: "yaapoupla",
+      //     capacity: 300,
+      //     date: "vendredi ",
+      //     chroni :"après-midi",
+      //     crowd : "affluence"
+      //   }
+      // ]
     };
 
     this.onSearching = this.onSearching.bind(this);
     this.onRemoving = this.onRemoving.bind(this);
+  }
+
+  componentDidMount = () => {
+    axios.get('http://vps791823.ovh.net/api/stades/')
+    .then((response) => {
+      this.setState({
+        values: response.data["hydra:member"]
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   handleClick = e => {
@@ -138,14 +152,28 @@ class Deepsearch extends React.Component {
             <hr />
             <div className="FileLinkWrapper" onClick={this.fileGenerator}>
               {this.state.values.map(val => {
-                if (val.name.indexOf(this.state.searchValue) === 0) {
+                console.log(val);
+                if (val.nom.indexOf(this.state.searchValue) === 0) {
+                  console.log(val);
                   return (
+                    // <FileLink
+                    //   location={val.name}
+                    //   capacity={val.capacity}
+                    //   date={val.date}
+                    //   chroni={val.chroni}
+                    //   crowd = {val.crowd}
+                    // />
                     <FileLink
-                      location={val.name}
-                      capacity={val.capacity}
-                      date={val.date}
-                      chroni={val.chroni}
-                      crowd = {val.crowd}
+                      location={val.nom}
+                      nom={val.nom}
+                      capacity={val.capacite}
+                      id={val["@id"]}
+                      lat={val.latitude}
+                      lng={val.longitude}
+                      //crowd={val.epreuves.maxDayAffluence}
+                      // date={val.date}
+                      // chroni={val.chroni}
+                      // crowd = {val.crowd}
                     />
                   );
                 }

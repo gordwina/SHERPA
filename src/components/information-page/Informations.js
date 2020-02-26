@@ -17,20 +17,21 @@ import SearchLeft from "../searching/searchLeft";
 // assets
 import capacity from "../../asset/capacity.svg";
 import stade from "../../asset/stade.png";
-import house from '../../asset/house.svg'
 import Gmap from "../map/gmap";
 import axios from "axios";
 class Informations extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
+        url: this.props.match.params.id,
+        isUpdate : false,
+        longitude: null,
+        latitude: null
     };
-
   }
   getSecurScore = (id) => {
     axios.get('http://vps791823.ovh.net/api/stades/' + id)
-        .then(function (response) {
+        .then((response) => {
           let nutriScore = document.getElementById('affluence');
           let capacite = response.data.capacite;
           if(capacite > 0 && capacite < 15000) {
@@ -50,7 +51,7 @@ class Informations extends React.Component {
 
   getName = (id) => {
     axios.get('http://vps791823.ovh.net/api/stades/' + id)
-        .then(function (response) {
+        .then((response) => {
           let responses = response.data;
           document.getElementById('name').innerHTML = responses.nom
 
@@ -62,23 +63,48 @@ class Informations extends React.Component {
 
   getCapacity = (id) => {
     axios.get('http://vps791823.ovh.net/api/stades/' + id)
-        .then(function (response) {
+        .then((response) => {
           let responses = response.data;
           document.getElementById('capacity').innerHTML = responses.capacite
 
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error);
         })
   };
 
+    getCoordonnees = (id) => {
+        //////
+        axios.get('http://vps791823.ovh.net/api/stades/' + id)
+            .then((response) => {
+                    this.setState({
+                        isUpdate : true,
+                        longitude: response.data.longitude,
+                        latitude: response.data.latitude
+                    });
+                    console.log(this.state.longitude)
+                },
+                (error) => {
+                    this.setState({
+                        error
+                    });
+                }
+
+            ) .catch((error) => {
+            console.log(error);
+        })
+    };
+
   componentDidMount() {
-    this.getCapacity(2);
-    this.getName(2);
-    this.getSecurScore(2);
+    let url = this.state.url;
+    this.getCapacity(url);
+    this.getName(url);
+    this.getSecurScore(url);
+    this.getCoordonnees(url)
   }
 
-  render() {
+
+    render() {
     return (
       <div className="InformationContainer">
         <SearchLeft></SearchLeft>
@@ -160,7 +186,9 @@ class Informations extends React.Component {
         </div>
         <div className="information__right">
           <div className="information__right--top">
-            <Gmap usingClass={"googleSmall"} zoom={10}> </Gmap>
+              {
+                   this.state.isUpdate === true ? ( <Gmap usingClass={"googleSmall"} zoom={16} lat={this.state.latitude} lng={this.state.longitude}> </Gmap>) : null
+              }
           </div>
           <div className="information__right--bottom">
             <ResponsiveStream
