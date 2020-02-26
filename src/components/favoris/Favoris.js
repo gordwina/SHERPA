@@ -26,9 +26,6 @@ class Favoris extends React.Component {
       openFav: !prevState.openFav
     }));
   }
-
- 
-
   render() {
     return (
       <div className="FavorisContainer">

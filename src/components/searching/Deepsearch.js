@@ -17,57 +17,6 @@ class Deepsearch extends React.Component {
       searchList: "",
       openCalendar: false,
       values: [],
-      //   {
-      //     name: "stade de france",
-      //     capacity: 300,
-      //     date: "jeudi",
-      //     chroni :"soirée",
-      //     crowd : "affluence"
-      //   },
-      //   {
-      //     name: "palais royal",
-      //     capacity: 300,
-      //     date: "mardi",
-      //     chroni :"matinée",
-      //     crowd : "affluence"
-      //   },
-      //   {
-      //     name: "teddy",
-      //     capacity: 300,
-      //     date: "jeudi",
-      //     chroni :"soirée",
-      //     crowd : "affluence"
-
-      //   },
-      //   {
-      //     name: "alice",
-      //     capacity: 300,
-      //     date: "jeudi",
-      //     chroni :"matinée",
-      //     crowd : "1affluence"
-      //   },
-      //   {
-      //     name: "youpla",
-      //     capacity: 300,
-      //     date: "vendredi ",
-      //     chroni :"après-midi",
-      //     crowd : "affluence"
-      //   },
-      //   {
-      //     name: "yuoupla",
-      //     capacity: 300,
-      //     date: "vendredi ",
-      //     chroni :"après-midi",
-      //     crowd : "affluence"
-      //   },
-      //   {
-      //     name: "yaapoupla",
-      //     capacity: 300,
-      //     date: "vendredi ",
-      //     chroni :"après-midi",
-      //     crowd : "affluence"
-      //   }
-      // ]
     };
 
     this.onSearching = this.onSearching.bind(this);
@@ -156,13 +105,6 @@ class Deepsearch extends React.Component {
                 if (val.nom.indexOf(this.state.searchValue) === 0) {
                   console.log(val);
                   return (
-                    // <FileLink
-                    //   location={val.name}
-                    //   capacity={val.capacity}
-                    //   date={val.date}
-                    //   chroni={val.chroni}
-                    //   crowd = {val.crowd}
-                    // />
                     <FileLink
                       location={val.nom}
                       nom={val.nom}
