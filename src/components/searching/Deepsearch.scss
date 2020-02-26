@@ -1,22 +1,25 @@
 @import "../../style/indexStyle.scss";
 @import "../../style/icon/style.scss";
-.DeepSearch{
-  width: 429px;
-  height: 650px;
-  margin-left: 40px;
-  margin-top: 80px;
-  z-index: 3;
+
+.SearchButton {
   position: absolute;
-  
+  top: 85px;
+  left: 40px;
+  z-index: 2;
+}
 
   .DeepSearchContainer { 
-    margin-top: -40px;
+    top: 85px;
     background: #3a506b;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 3px; 
     position: absolute;
     overflow: hidden;
     z-index: 4;
+    width: 429px;
+    height: 630px;
+    left: 40px;
+   /* margin-top: 80px; */
   }
   .SearchHelp {
     display: flex;
@@ -173,4 +176,3 @@
     overflow: scroll;
     padding-bottom: 20px;
   }
-}

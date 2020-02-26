@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import "./File-link.scss";
 
 class FileLink extends React.Component {
@@ -7,12 +6,9 @@ class FileLink extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-     
-      
-    }; 
-   
+    };   
   }
-
+//TODO@Alice : CLEANUP 
   render() {
     return (
       <div>
@@ -25,7 +21,7 @@ class FileLink extends React.Component {
                 <strong>{this.props.nom}</strong>
               </p>
               <p className="FileLinkCapacity">
-                <i className="icon-people"></i> {this.props.capacity}{" "} capacité
+                <i className="icon-people"></i> {this.props.capacity}{" "}
               </p>
               <p className="FileLinkCrowd"> <i id="yellow" className="icon-level-yellow"></i>{this.props.crowd} </p>
             </div>
@@ -42,5 +38,4 @@ class FileLink extends React.Component {
     );
   }
 }
-
 export default FileLink;
