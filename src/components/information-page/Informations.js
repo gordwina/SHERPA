@@ -19,9 +19,63 @@ import capacity from "../../asset/capacity.svg";
 import stade from "../../asset/stade.png";
 import house from '../../asset/house.svg'
 import Gmap from "../map/gmap";
+import axios from "axios";
 class Informations extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+    };
+
+  }
+  getSecurScore = (id) => {
+    axios.get('http://vps791823.ovh.net/api/stades/' + id)
+        .then(function (response) {
+          let nutriScore = document.getElementById('affluence');
+          let capacite = response.data.capacite;
+          if(capacite > 0 && capacite < 15000) {
+            nutriScore.classList.add('affluence--green')
+          } else if(capacite > 15000 && capacite <= 40000) {
+            nutriScore.classList.add('affluence--orange')
+          } else {
+            nutriScore.classList.add('affluence--red')
+          }
+
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+  };
+
+  getName = (id) => {
+    axios.get('http://vps791823.ovh.net/api/stades/' + id)
+        .then(function (response) {
+          let responses = response.data;
+          document.getElementById('name').innerHTML = responses.nom
+
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+  };
+
+  getCapacity = (id) => {
+    axios.get('http://vps791823.ovh.net/api/stades/' + id)
+        .then(function (response) {
+          let responses = response.data;
+          document.getElementById('capacity').innerHTML = responses.capacite
+
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+  };
+
+  componentDidMount() {
+    this.getCapacity(2);
+    this.getName(2);
+    this.getSecurScore(2);
   }
 
   render() {
@@ -30,7 +84,7 @@ class Informations extends React.Component {
         <SearchLeft></SearchLeft>
         <div className="information__left">
           <div className="information__left--top">
-            <h2>STADE DE FRANCE </h2>
+            <h2 id={"name"}></h2>
             <div className="information__inner--top">
               <div className="information__photo">
                 <img src={stade} alt="stade" />
@@ -40,12 +94,11 @@ class Informations extends React.Component {
                   <img src={capacity} alt="capacity" />
                 </div>
                 <div className="capacity-content">
-                  <p class="bold">81 000</p>
+                  <p id="capacity" class="bold"></p>
                   <p>Capacité totale</p>
                 </div>
                 <div className="affluence-picto">
-                 <div className="affluence">
-                  3
+                 <div className="affluence" id={"affluence"}>
                  </div>
                 </div>
                 <div className="affluence-content">

@@ -24,15 +24,25 @@ class Calendar extends React.Component {
   }
 
   getAffluence = (id) => {
-    axios.get('http://vps791823.ovh.net/api/dates/' + id)
+
+    axios.get('http://vps791823.ovh.net/api/dates/' + (id - 25))
         .then(function (response) {
           let affluence = response.data.totalAffluenceJournalier;
           if(affluence > 350000) {
-            document.getElementById(id).classList.add('icon-level-red')
+            document.getElementById(id).classList.add('icon-level-red');
+            document.getElementById(id).addEventListener('click', () => {
+                console.log(response.data.id)
+            })
           } else if (affluence > 260000) {
             document.getElementById(id).classList.add('icon-level-yellow')
+              document.getElementById(id).addEventListener('click', () => {
+                  console.log(response.data.id)
+              })
           } else {
             document.getElementById(id).classList.add('icon-level-green-2')
+              document.getElementById(id).addEventListener('click', () => {
+                  console.log(response.data.id)
+              })
           }
         })
         .catch(function (error) {
@@ -41,10 +51,40 @@ class Calendar extends React.Component {
         })
   };
 
+    getAffluenceSecond = (id) => {
+        axios.get('http://vps791823.ovh.net/api/dates/' + (id))
+            .then(function (response) {
+                let affluence = response.data.totalAffluenceJournalier;
+                if(affluence > 350000) {
+                    document.getElementById(id).classList.add('icon-level-red');
+                    document.getElementById(id).addEventListener('click', () => {
+                        console.log(response.data.id)
+                    })
+                } else if (affluence > 260000) {
+                    document.getElementById(id).classList.add('icon-level-yellow')
+                    document.getElementById(id).addEventListener('click', () => {
+                        console.log(response.data.id)
+                    })
+                } else {
+                    document.getElementById(id).classList.add('icon-level-green-2')
+                    document.getElementById(id).addEventListener('click', () => {
+                        console.log(response.data.id)
+                    })
+                }
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+    };
+
   generateDays = () => {
-    for (let i = 1; i <= 17; i++) {
+    for (let i = 26; i <= 31; i++) {
       this.state.listDates.push(<li><div>{i}<i id={i} className="round-affulence">{this.getAffluence(i)}</i></div></li>)
     }
+      for (let i = 1; i <= 11; i++) {
+          this.state.listDates.push(<li><div>{i}<i id={i} className="round-affulence">{this.getAffluenceSecond(i)}</i></div></li>)
+      }
     return this.state.listDates
   };
   render() {
