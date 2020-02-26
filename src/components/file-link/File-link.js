@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import "./File-link.scss";
 
 class FileLink extends React.Component {
@@ -7,12 +6,9 @@ class FileLink extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-     
-      
-    }; 
-   
+    };   
   }
-
+//TODO@Alice : CLEANUP 
   render() {
     return (
       <div>
@@ -42,5 +38,4 @@ class FileLink extends React.Component {
     );
   }
 }
-
 export default FileLink;
