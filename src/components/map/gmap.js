@@ -7,6 +7,7 @@ import PoliceStations from"../../asset/Imgmap/PoliceStations.svg";
 import FireStation from"../../asset/Imgmap/FireStation.svg";
 import Emergency from "../../asset/Imgmap/Emergency.svg";
 import Olympics2024 from "../../asset/Imgmap/Olympics2024.svg"; 
+import SafetyZone from "../../asset/Imgmap/SafetyZone.svg"; 
 export class Gmap extends React.Component {
   constructor(props) {
     super(props);
@@ -26,6 +27,9 @@ export class Gmap extends React.Component {
       ],
 
       pompier: [
+      ],
+
+      replis: [
       ]
     };
   }
@@ -35,13 +39,15 @@ export class Gmap extends React.Component {
       'hopital': 'http://vps791823.ovh.net/api/hopitauxes',
       'pompier': 'http://vps791823.ovh.net/api/casernes_pompiers',
       'police': 'http://vps791823.ovh.net/api/postes_polices',
-      'stadium': 'http://vps791823.ovh.net/api/stades'
+      'stadium': 'http://vps791823.ovh.net/api/stades',
+      'replis': 'http://vps791823.ovh.net/api/zone_replis'
     };
 
     this.request('hopital', url.hopital);
     this.request('police', url.police);
     this.request('stadium', url.stadium);
     this.request('pompier', url.pompier);
+    this.request('replis', url.pompier)
   }
 
   request = (what, url) => {
@@ -58,10 +64,20 @@ export class Gmap extends React.Component {
       console.log(error);
     });
   }
-   
-  onMarkerClick = (props, marker, e) => {
+   /*====>> TO KEEP*/ 
+ /*  onMarkerClick = (props, marker, e) => {
     console.log(props.type);
     if(props.type == 'Stades') {
+      this.setState({
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true
+      });
+    }
+  } */
+  onMarkerClick = (props, marker, e) => {
+    console.log(props.type);
+   {
       this.setState({
         selectedPlace: props,
         activeMarker: marker,
@@ -86,6 +102,7 @@ export class Gmap extends React.Component {
             url: icon
           }}
           onClick={this.onMarkerClick}
+          
         >
 
         </Marker>
@@ -105,9 +122,14 @@ export class Gmap extends React.Component {
         initialCenter={{ lat: 48.8583701, lng: 2.2944813 }}
       >  
         {this.displayMarker(this.state.stadium, Olympics2024)}
+
+       
         {this.displayMarker(this.state.hopital, Emergency)}
         {this.displayMarker(this.state.pompier, FireStation)}
         {this.displayMarker(this.state.police, PoliceStations)} 
+        {this.displayMarker(this.state.replis, SafetyZone)}
+
+
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
