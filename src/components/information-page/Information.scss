@@ -7,22 +7,29 @@
   width: 100vw;
 }
 
-.chart {
-  height: 40vh;
-  width: 60vw;
-  background: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-}
 
-.chart:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
 
 .information__left {
-  width: 60%;
+  //width: 60%;
+  margin-top: 80px;
+  margin-right : 25px; 
+  margin-left: 20px;
+  display: flex ; 
+  flex-direction: row;
+ // padding-right: 20px;
+  border: 1px solid #D1D1D1;
+  border-radius: 3px;
+  height: 88vh;
 
-  height: 100%;
+  .trytry{
+   /*  margin-right: 10px;
+    background : blue;
+    width: 20px; */
+    width :700px;
+    height: 100%;
+   // background: yellow; 
+    
+  
 
   .information__left--top {
     height: 50%;
@@ -47,6 +54,7 @@
           object-fit: cover;
           height: 100%;
           width: 100%;
+          border-radius: 3px;
         }
 
         .loading {
@@ -153,7 +161,10 @@
     .information__inner--bottom {
       width: 100%;
       height: 100%;
-
+      h3 {
+        margin-top: 10px;
+        margin-left: 10px;
+      }
       .zones {
         min-height: 100%;
         width: 100%;
@@ -189,27 +200,55 @@
   .information__left--bottom {
     height: 50%;
     width: 100%;
-    h2 {
+    //background : green;
+    h3 {
       margin-left: 10px;
+    }
+    .chart {
+      //background: violet !important;
+      height: 38vh !important;
+      width: 48vw;
+      //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+    
+    .chart:hover {
+      //box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
   }
 }
+ 
+}
+
+/* END LEFT PART  */
 .information__right {
-  width: 40%;
+  width: 43%;
   height: 100%;
+  margin-top: 80px;
+  //background : red;
+  //margin-right: 20px;
+  height: 88vh;
+ /*  border: 1px solid #D1D1D1;
+  border-radius: 3px; */
 
   .information__right--top {
-    margin-top: 20px;
+    //margin-top: 20px;
     height: 50%;
-    width: 100%;
+    //width: 100%;
+   // background: aquamarine;
     overflow: hidden;
-    margin-right: 10px;
+    //margin-right: 10px;
+    border: 1px solid #D1D1D1;
+    border-radius: 3px;
   }
 
   .information__right--bottom {
-    height: 50%;
+    height: 48%;
     width: 100%;
-
+    //background: violet;
+    margin-top: 10px;
+    border: 1px solid #D1D1D1;
+    border-radius: 3px;
   }
 }
 

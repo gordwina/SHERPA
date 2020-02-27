@@ -24,7 +24,7 @@ class Deepsearch extends React.Component {
 
 
   componentDidMount = () => {
-    axios.get('http://vps791823.ovh.net/api/stades?epreuves.idDate.date=2024-08-09')
+    axios.get('http://vps791823.ovh.net/api/stades')
     .then((response) => {
       this.setState({
         values: response.data["hydra:member"]
@@ -63,6 +63,8 @@ class Deepsearch extends React.Component {
     console.log('ok');
   };
 
+   
+
 
 
 
@@ -90,35 +92,33 @@ class Deepsearch extends React.Component {
               </button>
             </div>
 
-            <div className="SearchBar">
+          {/*   <div className="SearchBar">
               <div className="DateSearch">
                 <p>
                   20/25/2024 <i className="icon-arrow"></i>
                 </p>
-              </div>
+              </div> 
 
               <div className="DeploydSearch">
                 <i className="icon-magn"></i>
               </div>
-            </div>
+            </div> */}
+
             <hr />
             <div className="FileLinkWrapper" onClick={this.fileGenerator}>
               {this.state.values.map(val => {
                 console.log(val);
                 if (val.nom.indexOf(this.state.searchValue) === 0) {
                   console.log(val);
+                  let capacity = new Intl.NumberFormat('fr-FR', {  nu:'latn'  }).format(val.capacite);
                   return (
                     <FileLink
                       location={val.nom}
                       nom={val.nom}
-                      capacity={val.capacite}
+                      capacity={capacity} 
                       id={val["@id"]}
                       lat={val.latitude}
                       lng={val.longitude}
-                      crowd={val.epreuves.maxDayAffluence}
-                      // date={val.date}
-                      // chroni={val.chroni}
-                      // crowd = {val.crowd}
                     />
                   );
                 }
