@@ -79,7 +79,8 @@ class Informations extends React.Component {
         .then((response) => {
           let responses = response.data;
           let item = document.getElementById('capacity');
-          item.innerHTML = responses.capacite;
+          let capacity = new Intl.NumberFormat('fr-FR', {  nu:'latn'  }).format(responses.capacite);
+          item.innerHTML = capacity ;
 
 
         })
