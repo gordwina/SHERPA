@@ -31,6 +31,7 @@ class Informations extends React.Component {
         latitude: null,
         data: [],
         valueDate: null,
+        listDates: []
     };
   }
   getSecurScore = (id) => {
@@ -124,62 +125,55 @@ class Informations extends React.Component {
         })
     };
 
-    other = (id, value) => {
-        axios.get('http://vps791823.ovh.net/api/epreuves?idStade=' + id + "&idDate.date=" + this.state.valueDate)
-            .then((response) => {
-                    this.setState({
-                        isUpdateData : true,
-                    });
-                    this.state.data.push(
-                        {
-                            "jours" : value + 1,
-                            [`Jour ${value + 1}`]: response.data['hydra:member'][0].maxDayAffluence
-                        }
-                    );
-                    console.log(this.state.data)
-                },
-                (error) => {
-                    this.setState({
-                        error
 
-                    });
-
-                }
-            ) .catch((error) => {
-            console.log(error);
-            this.state.data.push(
-                {
-                    "jours" : value + 1,
-                    [`Jour ${value + 1}`]: 0
-                }
-            );
-        })
-    }
-    getData =  (id) => {
+    getDates =  () => {
         axios.get('http://vps791823.ovh.net/api/dates/')
             .then((response) => {
-                    for (let i = 0; i <= 17 ; i++) {
-
-                        let value = response.data['hydra:member'][i].date;
+                    for (let i = 0; i < 17; i++) {
                         this.setState({
                             isUpdateValueDate : true,
-                            valueDate : value.substr(0, 10),
-                            canGoSecond: true
                         });
-                        this.other(id, i);
+                        let date = response.data["hydra:member"][i].date;
+                        this.state.listDates.push(date.substr(0, 10))
                     }
+
+                    console.log(this.state.listDates);
                 },
                 (error) => {
                     this.setState({
                         error
                     });
                 }
-
             ) .catch((error) => {
             console.log(error);
         })
-
     };
+
+    getTotalAffluence = async (id) => {
+        for (let i = 0; i < 17; i++) {
+            let req = 'http://vps791823.ovh.net/api/epreuves?idStade=' + id + "&idDate.date=" + this.state.listDates[i];
+             await axios.get(req)
+                .then((response) => {
+                    let value = response.data['hydra:member'][0].maxDayAffluence;
+                    this.state.data.push(
+                        {
+                            "jours": i + 1,
+                            [`Jour ${i + 1}`] : value
+                        }
+                    );
+                    }
+                ) .catch((error) => {
+                //console.log(error);
+                     this.state.data.push(
+                         {
+                             "jours": i + 1,
+                             [`Jour ${i + 1}`] : 0
+                         }
+                     );
+                     this.setState({isUpdateData: true})
+            })
+        }
+    }
 
   componentDidMount() {
     let url = this.state.url;
@@ -188,7 +182,8 @@ class Informations extends React.Component {
     this.getSecurScore(url);
     this.getCoordonnees(url);
     this.getImage(url);
-    this.getData(url);
+    this.getDates(url);
+    this.getTotalAffluence(url)
   }
 
 

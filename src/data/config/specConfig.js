@@ -2,7 +2,7 @@ export default {
   keys: [
     'Affluence'
   ],
-  margin: { top: 50, right: 110, bottom: 50, left: 60 },
+  margin: { top: 50, right: 110, bottom: 50, left: 160 },
   axisBottom: [
     {
       orient: 'bottom',

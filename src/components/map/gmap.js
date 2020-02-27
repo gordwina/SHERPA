@@ -7,7 +7,7 @@ import PoliceStations from"../../asset/Imgmap/PoliceStations.svg";
 import FireStation from"../../asset/Imgmap/FireStation.svg";
 import Emergency from "../../asset/Imgmap/Emergency.svg";
 import Olympics2024 from "../../asset/Imgmap/Olympics2024.svg"; 
-import SafetyZone from "../../asset/Imgmap/SafetyZone.svg"; 
+import SafetyZone from "../../asset/Imgmap/SafetyZone.svg";
 export class Gmap extends React.Component {
   constructor(props) {
     super(props);
@@ -33,13 +33,31 @@ export class Gmap extends React.Component {
       ]
     };
   }
+  getCookieVal = (offset) => {
+    var endstr=document.cookie.indexOf (";", offset);
+    if (endstr==-1) endstr=document.cookie.length;
+    return unescape(document.cookie.substring(offset, endstr));
+  }
 
+  GetCookie = (name) => {
+    var arg=name+"=";
+    var alen=arg.length;
+    var clen=document.cookie.length;
+    var i=0;
+    while (i<clen) {
+      var j=i+alen;
+      if (document.cookie.substring(i, j)==arg) return this.getCookieVal (j);
+      i=document.cookie.indexOf(" ",i)+1;
+      if (i==0) break;
+    }
+    return null;
+  }
   componentDidMount = () => {
     const url ={
       'hopital': 'http://vps791823.ovh.net/api/hopitauxes',
       'pompier': 'http://vps791823.ovh.net/api/casernes_pompiers',
       'police': 'http://vps791823.ovh.net/api/postes_polices',
-      'stadium': 'http://vps791823.ovh.net/api/stades',
+      'stadium': 'http://vps791823.ovh.net/api/stades/',
       'replis': 'http://vps791823.ovh.net/api/zone_replis'
     };
 
@@ -83,7 +101,7 @@ export class Gmap extends React.Component {
         showingInfoWindow: true
       });
     }
-  }
+  };
     
 
   displayMarker = (items, icon) => {
@@ -101,7 +119,6 @@ export class Gmap extends React.Component {
             url: icon
           }}
           onClick={this.onMarkerClick}
-          
         >
 
         </Marker>
@@ -125,7 +142,7 @@ export class Gmap extends React.Component {
       >  
         {this.displayMarker(this.state.stadium, Olympics2024)}
 
-       
+
         {this.displayMarker(this.state.hopital, Emergency)}
         {this.displayMarker(this.state.pompier, FireStation)}
         {this.displayMarker(this.state.police, PoliceStations)} 
