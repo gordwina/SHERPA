@@ -83,13 +83,14 @@ export class Gmap extends React.Component {
   }
 
   displayMarker = (items, icon) => {
-    return items.map((items, index) => {
+    return items.map((items, index) => { 
+      let capacity = new Intl.NumberFormat('fr-FR', {  nu:'latn'  }).format(items.capacite);
       return (
         <Marker
           key={index}
           name={items.nom}
           id={items["@id"]}
-          capacite={items.capacite}
+          capacite={capacity}
           image={items.imagesStades}
           position={{
             lat: items.latitude,
@@ -99,7 +100,7 @@ export class Gmap extends React.Component {
           icon={{
             url: icon
           }}
-          capacite={items.capacite}
+          //capacite={items.capacite}
           onClick={this.onMarkerClick}  
         >
         </Marker>
