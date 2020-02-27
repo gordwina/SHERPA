@@ -1,7 +1,5 @@
 import React from "react";
 import "./Calendar.scss";
-import next_mouth from '../../asset/mois--change.svg'
-import previous_mouth from '../../asset/mois-previous.svg'
 import axios from 'axios';
 class Calendar extends React.Component {
   constructor(props) {
@@ -19,9 +17,9 @@ class Calendar extends React.Component {
 
 
   onSearching() {
-    this.setState({
-      openFav: true
-    });
+    this.setState(prevState =>({
+      openFav: !prevState.openFav
+    }));
   }
      createCookie = (nom, valeur, jour) => {
         if (jour) {
@@ -92,7 +90,7 @@ class Calendar extends React.Component {
                 console.log(error);
             })
     };
-
+    
   generateDays = () => {
     for (let i = 26; i <= 31; i++) {
       this.state.listDates.push(<li><div>{i}<i id={i} className="round-affulence" >{this.getAffluence(i)}</i></div></li>)
@@ -102,6 +100,10 @@ class Calendar extends React.Component {
       }
     return this.state.listDates
   };
+
+
+
+  
   render() {
     return (
       <div className="CalendarContainer">
@@ -137,5 +139,4 @@ class Calendar extends React.Component {
     );
   }
 }
-
 export default Calendar;

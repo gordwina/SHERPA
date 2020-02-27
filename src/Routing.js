@@ -11,7 +11,7 @@ export default function Routing() {
       <div>
         <Switch>
           <Route component={Login} exact path="/"></Route>
-          <Route component={Login} path="/login"></Route>
+
 
           <Route component={App} path="/home"></Route>
 

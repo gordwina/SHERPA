@@ -19,7 +19,7 @@ class Favoris extends React.Component {
         }
         return array
     }
-
+      
 
   onSearching() {
     this.setState(prevState =>({
@@ -28,6 +28,7 @@ class Favoris extends React.Component {
   }
   render() {
     return (
+      
       <div className="FavorisContainer">
         <button className="btn favoris" onClick={this.onSearching}>
           Mes favoris <i className="icon-arrow"></i>
@@ -35,7 +36,6 @@ class Favoris extends React.Component {
 
         {this.state.openFav === true ? ( 
           <div className="FavorisWrapper">
-            <span className="letMusicPlay"></span>
              {this.fileGenerator()} 
           </div>
         )  : null} 

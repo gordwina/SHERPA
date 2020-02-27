@@ -16,6 +16,7 @@ export class Gmap extends React.Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
+      idMarker: {},
       //openInfo = false,
 
       stadium: [
@@ -33,25 +34,8 @@ export class Gmap extends React.Component {
       ]
     };
   }
-  getCookieVal = (offset) => {
-    var endstr=document.cookie.indexOf (";", offset);
-    if (endstr==-1) endstr=document.cookie.length;
-    return unescape(document.cookie.substring(offset, endstr));
-  }
+ 
 
-  GetCookie = (name) => {
-    var arg=name+"=";
-    var alen=arg.length;
-    var clen=document.cookie.length;
-    var i=0;
-    while (i<clen) {
-      var j=i+alen;
-      if (document.cookie.substring(i, j)==arg) return this.getCookieVal (j);
-      i=document.cookie.indexOf(" ",i)+1;
-      if (i==0) break;
-    }
-    return null;
-  }
   componentDidMount = () => {
     const url ={
       'hopital': 'http://vps791823.ovh.net/api/hopitauxes',
@@ -110,6 +94,7 @@ export class Gmap extends React.Component {
         <Marker
           key={index}
           name={items.nom}
+          id={items["@id"]}
           position={{
             lat: items.latitude,
             lng: items.longitude
@@ -159,8 +144,9 @@ export class Gmap extends React.Component {
               <div style= {{marginLeft: '15px'}}>
                 <p style= {{fontWeight: '700', textAlign: 'left', marginTop:'20px'}}>{this.state.selectedPlace.name}</p>
                 <p style= {{textAlign: 'left', marginTop: '5px', marginBottom: '5px'}}> <i className="icon-people"></i> 290299292929</p>
-                <a  style= {{color: '#237EFF',  fontSize:'12px'}} href='/informations'> voir la fiche</a>
+                <a  style= {{color: '#237EFF',  fontSize:'12px'}} href={"/informations" + this.state.selectedPlace.id} > voir la fiche</a>
               </div>
+              {console.log(this.state.selectedPlace)}
             </div>
         </InfoWindow>
       </Map>
