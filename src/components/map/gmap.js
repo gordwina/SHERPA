@@ -12,6 +12,8 @@ export class Gmap extends React.Component {
   constructor(props) {
     super(props);
 
+    this.mapRef = React.createRef();
+
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
@@ -19,19 +21,11 @@ export class Gmap extends React.Component {
 
       //openInfo = false,
 
-      stadium: [
-      ],
-      police: [
-      ],
-
-      hopital: [
-      ],
-
-      pompier: [
-      ],
-
-      replis: [
-      ]
+      stadium: [],
+      police: [],
+      hopital: [],
+      pompier: [],
+      replis: []
     };
   }
 
@@ -91,6 +85,14 @@ export class Gmap extends React.Component {
     }
   } */
     
+  zoomChangedHandler = (e) =>{
+    console.log(e, Map);
+  }
+
+  mapClickedHandler = (e) => {
+    console.log(e, this);
+  }
+
 
   displayMarker = (items, icon) => {
     return items.map((items, index) => {
@@ -106,12 +108,9 @@ export class Gmap extends React.Component {
           icon={{
             url: icon
           }}
-          
           capacite={items.capacite}
           onClick={this.onMarkerClick}  
-
         >
-
         </Marker>
       );
     });
@@ -123,12 +122,18 @@ export class Gmap extends React.Component {
     return (
       <Map
         className={"gmapContainer " + this.props.usingClass}
+        ref={this.mapRef}
         google={this.props.google}
         zoom={this.props.zoom}
         lat={this.props.latitude}
         lng={this.props.longitude}
         //style={mapStyles}
         initialCenter={{ lat: this.props.lat, lng: this.props.lng }}
+        onZoomChanged={this.zoomChangedHandler}
+        onResize={this.zoomChangedHandler}
+        // onZoomChanged={this.mapClickedHandler}
+        // onBoundsChanged={this.zoomChangedHandler}
+        onClick={this.mapClickedHandler}
       >  
         {this.displayMarker(this.state.stadium, Olympics2024)}
         {this.displayMarker(this.state.hopital, Emergency)}
