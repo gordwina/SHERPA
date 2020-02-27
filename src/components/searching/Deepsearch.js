@@ -11,7 +11,7 @@ class Deepsearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      hasSearched: false,
+      hasSearched: true,
       searching: false,
       searchValue: "",
       searchList: "",
@@ -24,7 +24,7 @@ class Deepsearch extends React.Component {
 
 
   componentDidMount = () => {
-    axios.get('http://vps791823.ovh.net/api/stades?epreuves.idDate.date=2024-08-09')
+    axios.get('http://vps791823.ovh.net/api/stades/')
     .then((response) => {
       this.setState({
         values: response.data["hydra:member"]
@@ -37,7 +37,7 @@ class Deepsearch extends React.Component {
 
   handleClick = e => {
     this.setState({ searchList: e.target.value.toLowerCase() });
-    console.log(this.state.searchList);
+
   };
 
   onSearching() {
@@ -62,9 +62,6 @@ class Deepsearch extends React.Component {
     this.setState({openCalendar: true})
     console.log('ok');
   };
-
-
-
 
   render() {
     return (
@@ -106,8 +103,9 @@ class Deepsearch extends React.Component {
               {this.state.values.map(val => {
                 console.log(val);
                 if (val.nom.indexOf(this.state.searchValue) === 0) {
-                  console.log(val);
+
                   return (
+
                     <FileLink
                       location={val.nom}
                       nom={val.nom}
@@ -115,11 +113,13 @@ class Deepsearch extends React.Component {
                       id={val["@id"]}
                       lat={val.latitude}
                       lng={val.longitude}
-                      crowd={val.epreuves.maxDayAffluence}
+                      crowd={val.epreuves.maxTotalAffluence}
                       // date={val.date}
                       // chroni={val.chroni}
                       // crowd = {val.crowd}
+
                     />
+
                   );
                 }
               })}

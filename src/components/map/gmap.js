@@ -139,7 +139,6 @@ export class Gmap extends React.Component {
               <div style= {{marginLeft: '15px'}}>
                 <p style= {{fontWeight: '700', textAlign: 'left', marginTop:'20px'}}>{this.state.selectedPlace.name}</p>
                 <p style= {{textAlign: 'left', marginTop: '5px', marginBottom: '5px'}}> <i className="icon-people"></i> {this.state.selectedPlace.capacite}</p>
-                {console.log(this.state.selectedPlace)}
                 <a style= {{color: '#237EFF',  fontSize:'12px'}} href={"/informations" + this.state.selectedPlace.id} > voir la fiche</a>
               </div>
             </div>

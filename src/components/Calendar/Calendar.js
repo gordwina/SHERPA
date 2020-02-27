@@ -21,17 +21,7 @@ class Calendar extends React.Component {
       openFav: !prevState.openFav
     }));
   }
-     createCookie = (nom, valeur, jour) => {
-        if (jour) {
-            let date = new Date();
-            date.setTime(date.getTime()+jour*24*60*60*1000);
-            let exp = "; expires='"+date.toUTCString();
-            document.cookie = nom+"="+valeur+ exp +";";
-        } else {
-            let exp = ' ';
-            document.cookie = nom+"="+valeur+ exp +";";
-        }
-    };
+
 
   getAffluence = (id) => {
 
