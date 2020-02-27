@@ -7,15 +7,12 @@
     outline:  none;
     margin-right: 20px;
     color: $darkBlue ;
-
-   /*        
-    } */
 }
 
 .btn.calendar {
     .icon-calendar {
         &:hover {
-            color: $yellow ;
+            color: $white ;
             transition: transform .5s ease;
             transition-duration: 1s;        
         }
@@ -89,12 +86,14 @@ input[type=text] {
 
 .btn.favoris {
     border:none;
+    
     .icon-arrow{
-      margin-left: 2px;
-      font-size: 9px;
+        margin-left: 2px;
+        font-size: 9px;
     }
     &:hover {
         //background: black ;
+        padding-bottom : 8px;
         border-bottom: 2px solid $darkBlue;
         color: $darkBlue ;
         transition: none;
@@ -102,4 +101,4 @@ input[type=text] {
         border-radius: 0px;
         //box-shadow: 0 10px 15px 0 rgba(0, 43, 77, 0.2);    
     }
-  }
+}

@@ -34,6 +34,7 @@ export class Gmap extends React.Component {
     };
   }
 
+
   componentDidMount = () => {
     const url ={
       'hopital': 'http://vps791823.ovh.net/api/hopitauxes',
