@@ -44,3 +44,13 @@
     width: 130px;
     background: yellow; 
 }
+
+.photo_stade {
+    width: 100px;
+    height: 100px;
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}

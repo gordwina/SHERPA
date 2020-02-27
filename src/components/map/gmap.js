@@ -1,13 +1,12 @@
 import React from "react";
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 import "./gmap.scss";
-import stade from "../../asset/stade.png"
 import axios from 'axios';
 import PoliceStations from"../../asset/Imgmap/PoliceStations.svg";
 import FireStation from"../../asset/Imgmap/FireStation.svg";
 import Emergency from "../../asset/Imgmap/Emergency.svg";
 import Olympics2024 from "../../asset/Imgmap/Olympics2024.svg"; 
-import SafetyZone from "../../asset/Imgmap/SafetyZone.svg"; 
+import SafetyZone from "../../asset/Imgmap/SafetyZone.svg";
 export class Gmap extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +17,13 @@ export class Gmap extends React.Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
+      idMarker: {},
+      //openInfo = false,
+
+      stadium: [
+      ],
+      police: [
+      ],
 
       //openInfo = false,
 
@@ -28,7 +34,7 @@ export class Gmap extends React.Component {
       replis: []
     };
   }
-
+ 
 
 
 
@@ -37,7 +43,7 @@ export class Gmap extends React.Component {
       'hopital': 'http://vps791823.ovh.net/api/hopitauxes',
       'pompier': 'http://vps791823.ovh.net/api/casernes_pompiers',
       'police': 'http://vps791823.ovh.net/api/postes_polices',
-      'stadium': 'http://vps791823.ovh.net/api/stades',
+      'stadium': 'http://vps791823.ovh.net/api/stades/',
       'replis': 'http://vps791823.ovh.net/api/zone_replis'
     };
 
@@ -65,7 +71,7 @@ export class Gmap extends React.Component {
 
 
    /*====>> TO KEEP*/ 
-  onMarkerClick = (props, marker, e) => {
+   onMarkerClick = (props, marker, e) => {
     console.log(props.type);
     if(props.type == 'Stades') {
       this.setState({
@@ -74,25 +80,7 @@ export class Gmap extends React.Component {
         showingInfoWindow: true
       });
     }
-  } 
-/*   onMarkerClick = (props, marker, e) => {
-   {
-      this.setState({
-        selectedPlace: props,
-        activeMarker: marker,
-        showingInfoWindow: true
-      });
-    }
-  } */
-    
-  zoomChangedHandler = (e) =>{
-    console.log(e, Map);
   }
-
-  mapClickedHandler = (e) => {
-    console.log(e, this);
-  }
-
 
   displayMarker = (items, icon) => {
     return items.map((items, index) => {
@@ -100,6 +88,9 @@ export class Gmap extends React.Component {
         <Marker
           key={index}
           name={items.nom}
+          id={items["@id"]}
+          capacite={items.capacite}
+          image={items.imagesStades}
           position={{
             lat: items.latitude,
             lng: items.longitude
@@ -116,7 +107,10 @@ export class Gmap extends React.Component {
     });
   };
 
-  
+    cut = () => {
+      let value = this.state.selectedPlace.id;
+      console.log(value.substring(0,16))
+    }
 
   render() {
     return (
@@ -144,13 +138,22 @@ export class Gmap extends React.Component {
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
-        >
+          style= {{background: 'red'}}
+          >
+
             <div  style= {{padding: '5px', display: 'flex', flexDirection: 'row'}}>
-            <img src={stade} alt="Logo" />
+             <div className="photo_stade">
+               {
+                 this.state.selectedPlace.image ? <img src={`http://vps791823.ovh.net/images/${this.state.selectedPlace.image && this.state.selectedPlace.image.nomImage}`} alt={"Photo-" + this.state.selectedPlace.name} /> :
+                     "photo inexistante"
+               }
+
+             </div>
               <div style= {{marginLeft: '15px'}}>
                 <p style= {{fontWeight: '700', textAlign: 'left', marginTop:'20px'}}>{this.state.selectedPlace.name}</p>
                 <p style= {{textAlign: 'left', marginTop: '5px', marginBottom: '5px'}}> <i className="icon-people"></i> {this.state.selectedPlace.capacite}</p>
-                <a  style= {{color: '#237EFF',  fontSize:'12px'}} href='/informations'> voir la fiche</a>
+                {console.log(this.state.selectedPlace)}
+                <a style= {{color: '#237EFF',  fontSize:'12px'}} href={"/informations" + this.state.selectedPlace.id} > voir la fiche</a>
               </div>
             </div>
         </InfoWindow>
