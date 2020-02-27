@@ -139,7 +139,6 @@ export class Gmap extends React.Component {
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
-          style= {{background: 'red'}}
           >
 
             <div  style= {{padding: '5px', display: 'flex', flexDirection: 'row'}}>
