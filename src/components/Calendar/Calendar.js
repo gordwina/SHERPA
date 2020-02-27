@@ -18,14 +18,14 @@ class Calendar extends React.Component {
 
 
   onSearching() {
-    this.setState({
-      openFav: true
-    });
+    this.setState(prevState =>({
+      openFav: !prevState.openFav
+    }));
   }
 
   getAffluence = (id) => {
 
-    axios.get('http://vps791823.ovh.net/api/dates/' + (id - 25))
+    axios.get('http://vps791823.ovh.net/api/dates/' + (id - 25)) //ad 25
         .then(function (response) {
           let affluence = response.data.totalAffluenceJournalier;
           if(affluence > 350000) {
@@ -77,7 +77,7 @@ class Calendar extends React.Component {
                 console.log(error);
             })
     };
-
+    
   generateDays = () => {
     for (let i = 26; i <= 31; i++) {
       this.state.listDates.push(<li><div>{i}<i id={i} className="round-affulence">{this.getAffluence(i)}</i></div></li>)
@@ -87,6 +87,10 @@ class Calendar extends React.Component {
       }
     return this.state.listDates
   };
+
+
+
+  
   render() {
     return (
       <div className="CalendarContainer">
@@ -122,5 +126,4 @@ class Calendar extends React.Component {
     );
   }
 }
-
 export default Calendar;

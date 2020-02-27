@@ -6,7 +6,7 @@
     width: 100%; 
     padding: 9px 25px;
     position: absolute;
-    //background: $green;
+
     justify-content: space-between;
     display: flex;
     flex-direction: row;
@@ -21,11 +21,11 @@
         flex: 1;
         .logo {
             margin-left: 35px;
-            margin-top: 25px;
-            margin-right: -17px;
-            height: 50px;
-            width: 50px;
-            background-image:  url(../../asset/logo.png);
+           /*  margin-top: 25px;
+            margin-right: -17px; */
+            height: 40px;
+            width: 40px;
+            background-image:  url(../../asset/logo-sherpa.svg);
             background-repeat: no-repeat;
         } 
     }
@@ -34,9 +34,5 @@
         display: flex;
         flex-direction: row;
         align-items: center; 
-        .logoutButton{
-           // margin-left: -180px;
-           
-        }
     }
 } 

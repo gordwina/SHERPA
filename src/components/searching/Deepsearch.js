@@ -4,7 +4,7 @@ import "../../style/colors.scss";
 import "../../style/font.scss";
 import "../../style/icon/style.scss";
 import FileLink from "../file-link/File-link";
-import Calendar from "../Calendar/Calendar";
+//import Calendar from "../Calendar/Calendar";
 import axios from 'axios'
 
 class Deepsearch extends React.Component {
@@ -18,13 +18,13 @@ class Deepsearch extends React.Component {
       openCalendar: false,
       values: [],
     };
-
     this.onSearching = this.onSearching.bind(this);
     this.onRemoving = this.onRemoving.bind(this);
   }
 
+
   componentDidMount = () => {
-    axios.get('http://vps791823.ovh.net/api/stades/')
+    axios.get('http://vps791823.ovh.net/api/stades?epreuves.idDate.date=2024-08-09')
     .then((response) => {
       this.setState({
         values: response.data["hydra:member"]
@@ -62,6 +62,9 @@ class Deepsearch extends React.Component {
     this.setState({openCalendar: true})
     console.log('ok');
   };
+
+
+
 
   render() {
     return (
@@ -112,7 +115,7 @@ class Deepsearch extends React.Component {
                       id={val["@id"]}
                       lat={val.latitude}
                       lng={val.longitude}
-                      //crowd={val.epreuves.maxDayAffluence}
+                      crowd={val.epreuves.maxDayAffluence}
                       // date={val.date}
                       // chroni={val.chroni}
                       // crowd = {val.crowd}
