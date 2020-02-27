@@ -186,9 +186,6 @@ class Informations extends React.Component {
     this.getTotalAffluence(url)
   }
 
-
-
-
     render() {
     return (
       <div className="InformationContainer">
