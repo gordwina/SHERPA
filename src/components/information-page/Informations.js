@@ -13,7 +13,7 @@ import specConfig from "../../data/config/specConfig.js";
 
 //components
 import SearchLeft from "../searching/searchLeft";
-
+import Top from "../header/Top"
 // assets
 import capacity from "../../asset/capacity.svg";
 import Gmap from "../map/gmap";
@@ -197,91 +197,103 @@ class Informations extends React.Component {
     render() {
     return (
       <div className="InformationContainer">
-        <SearchLeft></SearchLeft>
+        <Top></Top>
+       
         <div className="information__left">
-          <div className="information__left--top">
-            <h2 id={"name"}></h2>
-            <div className="information__inner--top">
-              <div className="information__photo">
-                  {
-                      this.state.isUpdateImage === true ? (<img src={"http://vps791823.ovh.net/images/" + this.state.image} alt="stade" />) : (<div class={"loading"}>
-                          <div className="lds-ripple">
-                              <div></div>
-                              <div></div>
-                          </div></div>)
-                  }
-              </div>
-              <div className="informations__content">
-                <div className="capacity-picto">
-                  <img src={capacity} alt="capacity" />
-                </div>
-                <div className="capacity-content">
-                  <p id="capacity" class="bold"></p>
-                  <p>Capacité totale</p>
-                </div>
-                <div className="affluence-picto">
-                 <div className="affluence" id={"affluence"}>
-                 </div>
-                </div>
-                <div className="affluence-content">
-                  <p class="bold">Sécur-score</p>
-                  <p id={"tranche"}></p>
-                </div>
-              </div>
-            </div>
-            <div className="information__inner--bottom">
-              <h2>Zone de repli à proximité</h2>
-              <div className="zones">
-                <div className="zones-item">
-                  <div className="item-name"><i className="icon-zone_repli"></i>École Marcelin Berthelot</div>
-                  <div className="item-time">2 min </div>
-                  <div className="item-capacity">capacité de 600 personnes</div>
-                </div>
-                <div className="zones-item">
-                  <div className="item-name"><i className="icon-safety-fire-extinguisher-2"></i>École Marcelin Berthelot</div>
-                  <div className="item-time">2 min </div>
-                  <div className="item-capacity">capacité de 600 personnes</div>
-                </div>
-                <div className="zones-item">
-                  <div className="item-name"><i className="icon-Group-5"></i>École Marcelin Berthelot</div>
-                  <div className="item-time">2 min </div>
-                  <div className="item-capacity">capacité de 600 personnes</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        
+          <SearchLeft></SearchLeft>
+          <div className= "trytry">
+{/* box commence ici  */}
 
-          <div className="information__left--bottom">
-            <h2>Affluence globale sur la période des JO</h2>
-            <div class="chart">
-                { this.state.isUpdateData === true ? (
-                    <ResponsiveBar
-                        data={this.state.data}
-                        keys={globalConfig.keys}
-                        indexBy="jours"
-                        margin={globalConfig.margin}
-                        padding={0.3}
-                        colors={{ scheme: "blues" }}
-                        colorBy="id"
-                        defs={globalConfig.defs}
-                        fill={globalConfig.fill}
-                        borderColor="inherit:darker(1.6)"
-                        axisTop={null}
-                        axisRight={null}
-                        axisBottom={globalConfig.axisBottom}
-                        axisLeft={globalConfig.axisLeft}
-                        labelSkipWidth={12}
-                        labelSkipHeight={12}
-                        labelTextColor="inherit:darker(1.6)"
-                        animate={true}
-                        motionStiffness={90}
-                        motionDamping={15}
-                        enableLabel={false}
-                    />
-                ) : null }
+            <div className="information__left--top">
+              <h2 id={"name"}></h2>
+              <div className="information__inner--top">
+                <div className="information__photo">
+                    {
+                        this.state.isUpdateImage === true ? (<img src={"http://vps791823.ovh.net/images/" + this.state.image} alt="stade" />) : (<div class={"loading"}>
+                            <div className="lds-ripple">
+                                <div></div>
+                                <div></div>
+                            </div></div>)
+                    }
+                </div>
+                <div className="informations__content">
+                  <div className="capacity-picto">
+                    <img src={capacity} alt="capacity" />
+                  </div>
+                  <div className="capacity-content">
+                    <p id="capacity" class="bold"></p>
+                    <p>Capacité totale</p>
+                  </div>
+                  <div className="affluence-picto">
+                  <div className="affluence" id={"affluence"}>
+                  </div>
+                  </div>
+                  <div className="affluence-content">
+                    <p class="bold">Sécur-score</p>
+                    <p id={"tranche"}></p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="information__inner--bottom">
+                <h3>Secour à proximité </h3>
+                <div className="zones">
+                  <div className="zones-item">
+                    <div className="item-name"><i className="icon-repli"></i>École Marcelin Berthelot</div>
+                    <div className="item-time"><i className="icon-walking"/>2 min </div>
+                    <div className="item-capacity"> <i className="icon-people"/> 600 personnes</div> 
+                  </div>
+                  <div className="zones-item">
+                    <div className="item-name"><i className="icon-polic"></i>Police</div>
+                    <div className="item-time"> <i className="icon-walking"/>2 min</div>
+                   
+                  </div>
+                  <div className="zones-item">
+                    <div className="item-name"><i className="icon-pompier"></i>Caserne</div>
+                    <div className="item-time"> <i className="icon-walking"/>2 min </div>
+                  </div>
+                  <div className="zones-item">
+                    <div className="item-name"><i className="icon-hopital"></i>Hopital</div>
+                    <div className="item-time"> <i className="icon-walking"/>2 min </div> 
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+
+            <div className="information__left--bottom">
+              <h3>Affluence globale sur la période des JO</h3>
+              <div class="chart">
+                  { this.state.isUpdateData === true ? (
+                      <ResponsiveBar
+                          data={this.state.data}
+                          keys={globalConfig.keys}
+                          indexBy="jours"
+                          margin={globalConfig.margin}
+                          padding={0.3}
+                          colors={{ scheme: "blues" }}
+                          colorBy="id"
+                          defs={globalConfig.defs}
+                          fill={globalConfig.fill}
+                          borderColor="inherit:darker(1.6)"
+                          axisTop={null}
+                          axisRight={null}
+                          axisBottom={globalConfig.axisBottom}
+                          axisLeft={globalConfig.axisLeft}
+                          labelSkipWidth={12}
+                          labelSkipHeight={12}
+                          labelTextColor="inherit:darker(1.6)"
+                          animate={true}
+                          motionStiffness={90}
+                          motionDamping={15}
+                          enableLabel={false}
+                      />
+                  ) : null }
+              </div>
+            </div>
         </div>
+        </div>
+        {/* box commence ici  */}
         <div className="information__right">
           <div className="information__right--top">
               {

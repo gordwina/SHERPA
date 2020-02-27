@@ -16,6 +16,7 @@ export class Gmap extends React.Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
+
       //openInfo = false,
 
       stadium: [
@@ -33,6 +34,8 @@ export class Gmap extends React.Component {
       ]
     };
   }
+
+
 
 
   componentDidMount = () => {
@@ -65,8 +68,10 @@ export class Gmap extends React.Component {
       console.log(error);
     });
   }
+
+
    /*====>> TO KEEP*/ 
- /*  onMarkerClick = (props, marker, e) => {
+  onMarkerClick = (props, marker, e) => {
     console.log(props.type);
     if(props.type == 'Stades') {
       this.setState({
@@ -75,8 +80,8 @@ export class Gmap extends React.Component {
         showingInfoWindow: true
       });
     }
-  } */
-  onMarkerClick = (props, marker, e) => {
+  } 
+/*   onMarkerClick = (props, marker, e) => {
    {
       this.setState({
         selectedPlace: props,
@@ -84,7 +89,7 @@ export class Gmap extends React.Component {
         showingInfoWindow: true
       });
     }
-  }
+  } */
     
 
   displayMarker = (items, icon) => {
@@ -101,8 +106,10 @@ export class Gmap extends React.Component {
           icon={{
             url: icon
           }}
-          onClick={this.onMarkerClick}
           
+          capacite={items.capacite}
+          onClick={this.onMarkerClick}  
+
         >
 
         </Marker>
@@ -110,7 +117,7 @@ export class Gmap extends React.Component {
     });
   };
 
-
+  
 
   render() {
     return (
@@ -120,29 +127,24 @@ export class Gmap extends React.Component {
         zoom={this.props.zoom}
         lat={this.props.latitude}
         lng={this.props.longitude}
-
         //style={mapStyles}
         initialCenter={{ lat: this.props.lat, lng: this.props.lng }}
       >  
         {this.displayMarker(this.state.stadium, Olympics2024)}
-
-       
         {this.displayMarker(this.state.hopital, Emergency)}
         {this.displayMarker(this.state.pompier, FireStation)}
         {this.displayMarker(this.state.police, PoliceStations)} 
         {this.displayMarker(this.state.replis, SafetyZone)}
 
-
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
-          style= {{background: 'red'}}
-          >
+        >
             <div  style= {{padding: '5px', display: 'flex', flexDirection: 'row'}}>
-              <img src={stade} alt="Logo" />
+            <img src={stade} alt="Logo" />
               <div style= {{marginLeft: '15px'}}>
                 <p style= {{fontWeight: '700', textAlign: 'left', marginTop:'20px'}}>{this.state.selectedPlace.name}</p>
-                <p style= {{textAlign: 'left', marginTop: '5px', marginBottom: '5px'}}> <i className="icon-people"></i> 290299292929</p>
+                <p style= {{textAlign: 'left', marginTop: '5px', marginBottom: '5px'}}> <i className="icon-people"></i> {this.state.selectedPlace.capacite}</p>
                 <a  style= {{color: '#237EFF',  fontSize:'12px'}} href='/informations'> voir la fiche</a>
               </div>
             </div>
