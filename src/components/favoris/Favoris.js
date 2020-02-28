@@ -1,12 +1,17 @@
 import React from "react";
 import "./Favoris.scss";
 import FileLink from "../file-link/File-link";
+import axios from 'axios'
 
 class Favoris extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      openFav: false
+      openFav: false,
+      searchValue: "",
+      searchList: "",
+      openCalendar: false,
+      values: [],
     };
 
     this.onSearching = this.onSearching.bind(this);
@@ -19,13 +24,30 @@ class Favoris extends React.Component {
         }
         return array
     }
-      
+       
 
   onSearching() {
     this.setState(prevState =>({
       openFav: !prevState.openFav
     }));
   }
+
+
+
+
+
+  componentDidMount = () => {
+    axios.get('http://vps791823.ovh.net/api/stades')
+    .then((response) => {
+      this.setState({
+        values: response.data["hydra:member"]
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   render() {
     return (
       
@@ -36,7 +58,31 @@ class Favoris extends React.Component {
 
         {this.state.openFav === true ? ( 
           <div className="FavorisWrapper">
-             {this.fileGenerator()} 
+            {this.state.values.map(val => {
+                console.log(val);
+                
+                if (val.nom.indexOf(this.state.searchValue) === 0) {
+                  console.log(val);
+                  let capacity = new Intl.NumberFormat('fr-FR', {  nu:'latn'  }).format(val.capacite);
+                  return (
+
+                    <FileLink
+                      location={val.nom}
+                      nom={val.nom}
+                      capacity={capacity} 
+                      id={val["@id"]}
+                      lat={val.latitude}
+                      lng={val.longitude}
+                      crowd={val.epreuves[0].maxDayAffluence}
+                    />
+                  );
+                }
+            })}
+
+
+
+
+   
           </div>
         )  : null} 
       </div>
