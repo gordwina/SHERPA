@@ -1,25 +1,39 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, {useState} from "react";
+import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import App from "./App";
 import Informations from "./components/information-page/Informations";
-import Favoris from "./components/favoris/Favoris";
-import Login from './components/login/Login';
+import LoginPage from './components/login/Login';
+import authAPI from "./services/authAPI";
 
 export default function Routing() {
-  return (
-    <Router>
-      <div>
-        <Switch>
-          <Route component={Login} exact path="/"></Route>
-          <Route component={Login} path="/login"></Route>
 
-          <Route component={App} path="/home"></Route>
+    const [isAuthenticated, setIsAuthenticated] = useState(authAPI.isAuthenticated());
 
-          <Route component={Informations} path="/informations/api/stades/:id"></Route>
+    console.log(isAuthenticated);
 
-          <Route component={Favoris} path="/favoris"></Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+    const PrivateRoute = ({path, isAuthenticated, component}) =>
+        isAuthenticated ? (
+            <Route path={path} component={component}/>
+        ) : (
+            <Redirect to="/"/>
+        );
+
+    return (
+        <Router>
+            <div>
+                <Switch>
+                    <Route render={props => <LoginPage
+                        onLogin={setIsAuthenticated}
+                        {...props}/>}
+                           exact path="/"/>
+
+                    <PrivateRoute path="/home" isAuthenticated={isAuthenticated} component={App}/>
+
+                    <PrivateRoute path="/informations/api/stades/:id" isAuthenticated={isAuthenticated}
+                                  component={Informations}/>
+
+                </Switch>
+            </div>
+        </Router>
+    );
 }
