@@ -19,7 +19,7 @@ class Favoris extends React.Component {
 
    fileGenerator(){
         let array = [];
-        for ( let i =0 ; i <3; i++){
+        for (let i =0 ; i <3; i++){
           array.push(<FileLink/>)
         }
         return array
@@ -31,10 +31,6 @@ class Favoris extends React.Component {
       openFav: !prevState.openFav
     }));
   }
-
-
-
-
 
   componentDidMount = () => {
     axios.get('http://vps791823.ovh.net/api/stades')
@@ -58,18 +54,16 @@ class Favoris extends React.Component {
 
         {this.state.openFav === true ? ( 
           <div className="FavorisWrapper">
-            {this.state.values.map(val => {
+            {this.state.values.slice(0, 3).map(val => {
                 console.log(val);
-                
+
                 if (val.nom.indexOf(this.state.searchValue) === 0) {
-                  console.log(val);
                   let capacity = new Intl.NumberFormat('fr-FR', {  nu:'latn'  }).format(val.capacite);
                   return (
-
                     <FileLink
                       location={val.nom}
                       nom={val.nom}
-                      capacity={capacity} 
+                      capacity={capacity}
                       id={val["@id"]}
                       lat={val.latitude}
                       lng={val.longitude}
@@ -78,11 +72,6 @@ class Favoris extends React.Component {
                   );
                 }
             })}
-
-
-
-
-   
           </div>
         )  : null} 
       </div>
