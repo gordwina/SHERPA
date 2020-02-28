@@ -1,31 +1,31 @@
 export default(
   [
     {
-      "Affluence": 10000,
+      "Affluence": 0,
     },
     {
-      "Affluence": 6000,
+      "Affluence": 0,
     },
     {
-      "Affluence": 3000,
+      "Affluence": 0,
     },
     {
-      "Affluence": 1900,
+      "Affluence": 0,
     },
     {
-      "Affluence": 4000,
+      "Affluence": 0,
     },
     {
-      "Affluence": 2500,
+      "Affluence": 0,
     },
     {
-      "Affluence": 8000,
+      "Affluence": 0,
     },
     {
-      "Affluence": 3400,
+      "Affluence": 0,
     },
     {
-      "Affluence": 4000,
+      "Affluence": 2000,
     },
     {
       "Affluence": 1000,
@@ -43,17 +43,39 @@ export default(
       "Affluence": 6000,
     },
     {
-      "Affluence": 2000,
+      "Affluence": 5000,
     },
     {
-      "Affluence": 2000,
+      "Affluence": 4500,
     },
     {
-      "Affluence": 14000,
+      "Affluence": 3300,
     },
     {
-      "Affluence": 19000,
+      "Affluence": 2900,
     },
+      {
+          "Affluence":2500,
+      },
+
+      {
+          "Affluence": 2000,
+      },
+      {
+          "Affluence": 2300,
+      },
+      {
+          "Affluence": 1700,
+      },
+      {
+          "Affluence": 1600,
+      },
+      {
+          "Affluence": 900,
+      },
+      {
+          "Affluence": 100,
+      },
 
 
   ]
