@@ -188,7 +188,7 @@
               font-weight: 400;
             }
             .item-name{
-              width: 300px;
+              width: 370px;
               text-align: left;
             }
             .item-time{
@@ -241,12 +241,25 @@
   }
 
   .information__right--bottom {
-    height: 48%;
+    h3{
+      //margin-left :24px;
+      //margin-top: 8px;
+    }
+    height: 47.5%;
     width: 100%;
     //background: violet;
-    margin-top: 10px;
+    margin-top: 16px;
     border: 1px solid #D1D1D1;
     border-radius: 3px;
+    padding : 16px;
+    .tito{
+      height: 94%;
+      width: 120%;
+      margin-left: -120px;
+
+    }
   }
+
+ 
 }
 

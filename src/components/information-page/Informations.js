@@ -340,7 +340,10 @@ class Informations extends React.Component {
                    this.state.isUpdate === true ? ( <Gmap usingClass={"googleSmall"} zoom={14} lat={this.state.latitude} lng={this.state.longitude}> </Gmap>) : null
               }
           </div>
+          
           <div className="information__right--bottom">
+            <h3>Affluence globale sur la période des JO</h3>
+           <div className="tito">
             <ResponsiveStream
               data={specData}
               keys={specConfig.keys}
@@ -363,6 +366,7 @@ class Informations extends React.Component {
               motionDamping={specConfig.motionDamping}
               legends={specConfig.legends}
             />
+           </div>
           </div>
         </div>
       </div>
