@@ -6,8 +6,11 @@ class FileLink extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    };   
+    };
   }
+
+
+
 //TODO@Alice : CLEANUP 
   render() {
     return (
@@ -23,9 +26,10 @@ class FileLink extends React.Component {
                 <i className="icon-people"></i> 
                 {this.props.capacity}
               </p>
-              <p className="FileLinkCrowd"> 
-                <i id="yellow" className="icon-level-yellow"></i>
-                {this.props.crowd} 
+              <p className="FileLinkCrowd">
+                {this.props.crowd > 20000 ?  <i id="red" className="icon-level-red"></i> : this.props.crowd < 10000 ? <i id="green" className="icon-level-green-2"></i> :
+                    <i id="yellow" className="icon-level-yellow"></i>}
+
               </p>
             </div>
             <div className="FileLinkPlus">
