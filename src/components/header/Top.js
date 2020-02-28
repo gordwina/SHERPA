@@ -1,30 +1,31 @@
 import React from "react";
 import "./Top.scss";
 import Favoris from "../favoris/Favoris";
+import authAPI from "../../services/authAPI";
 
-class Top extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const LogoutPage = ({isAuthenticated, onLogout, history}) => {
 
-  render() {
+    const handleLogout = () => {
+        authAPI.logout();
+        onLogout(false);
+        history.push("/")
+    };
+
     return (
-      <div className="Head">
-        <div className="brandingWrapper">
-          <div className="logo"></div>
+        <div className="Head">
+            <div className="brandingWrapper">
+                <div className="logo"></div>
 
-          <div className="brand">sherpa</div>
-        </div>
+                <div className="brand">sherpa</div>
+            </div>
 
-        <div className="buttonWrapper">
-          <Favoris></Favoris> 
-          <a href="/"> 
-            <button className="btn logoutButton">Déconnexion <i className="icon-out-1"></i></button>
-          </a>
+            <div className="buttonWrapper">
+                <Favoris></Favoris>
+                <button onClick={handleLogout} className="btn logoutButton">Déconnexion <i className="icon-out"></i></button>
+            </div>
         </div>
-      </div>
     );
-  }
-}
-export default Top;
+
+};
+
+export default LogoutPage;
