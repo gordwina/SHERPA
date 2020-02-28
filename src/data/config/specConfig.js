@@ -13,8 +13,8 @@ export default {
       legendOffset: 36
     }
   ],
-  axisLeft: [{ orient: 'left', tickSize: 5, tickPadding: 5, tickRotation: 0, legend: '', legendOffset: -40 }],
-  offsetType: "silhouette",
+  axisLeft: [{ orient: 'left', tickSize: 5, tickPadding: 5, tickRotation: 0, legend: '', legendOffset: 40 }],
+  offsetType: "diverging",
   colors: { scheme: 'category10' },
   fillOpacity: 0.85,
   borderColor: { theme: 'background' },

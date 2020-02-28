@@ -150,6 +150,31 @@ class Informations extends React.Component {
         })
     };
 
+    getSecours = (id, item) => {
+        axios.get('http://vps791823.ovh.net/api/stades/' + id)
+            .then((response) => {
+                let responses = response.data;
+                document.getElementById(item).innerHTML += responses[`${item}`].nom
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    };
+
+    getCapacityZone = (id) => {
+        axios.get('http://vps791823.ovh.net/api/stades/' + id)
+            .then((response) => {
+                let responses = response.data;
+                document.getElementById("capaciteReplis").innerHTML += responses.replis.capacite + " personnes"
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    };
+
+
     getTotalAffluence = async (id) => {
         for (let i = 0; i < 17; i++) {
             let req = 'http://vps791823.ovh.net/api/epreuves?idStade=' + id + "&idDate.date=" + this.state.listDates[i];
@@ -176,9 +201,6 @@ class Informations extends React.Component {
         }
     }
 
-
-
-  
   componentDidMount() {
     let url = this.state.url;
     this.getCapacity(url);
@@ -187,8 +209,30 @@ class Informations extends React.Component {
     this.getCoordonnees(url);
     this.getImage(url);
     this.getDates(url);
-    this.getTotalAffluence(url)
+    this.getTotalAffluence(url);
+    this.getSecours(url, "hopitaux");
+    this.getSecours(url, "polices");
+    this.getSecours(url, "pompiers");
+    this.getSecours(url, "replis");
+    this.getTime();
+    this.getCapacityZone(url);
   }
+
+     getTime = () => {
+         function getRandomInt(min, max) {
+             min = Math.ceil(min);
+             max = Math.floor(max);
+             return Math.floor(Math.random() * (max - min)) + min;
+         }
+         
+         
+        let time = document.querySelectorAll('#time');
+         for (let i = 0; i < time.length ; i++) {
+             let int = getRandomInt(1, 10);
+             time[i].innerHTML += int + " min";
+         }
+
+    }
 
     render() {
     return (
@@ -236,22 +280,22 @@ class Informations extends React.Component {
                 <h3>Secour à proximité </h3>
                 <div className="zones">
                   <div className="zones-item">
-                    <div className="item-name"><i className="icon-repli"></i>École Marcelin Berthelot </div>
-                    <div className="item-time"><i className="icon-walking"/>2 min </div>
-                    <div className="item-capacity"> <i className="icon-people"/> 600 personnes</div> 
+                    <div className="item-name" id={"replis"}><i className="icon-repli"></i></div>
+                    <div className="item-time" id={"time"}><i className="icon-walking"/> </div>
+                    <div className="item-capacity" id={"capaciteReplis"}><i className="icon-people"/></div>
                   </div>
                   <div className="zones-item">
-                    <div className="item-name"><i className="icon-polic"></i>Police</div>
-                    <div className="item-time"> <i className="icon-walking"/>2 min</div>
+                    <div className="item-name" id={"polices"}><i className="icon-polic"></i></div>
+                    <div className="item-time" id={"time"}><i className="icon-walking"/></div>
                    
                   </div>
                   <div className="zones-item">
-                    <div className="item-name"><i className="icon-pompier"></i>Caserne</div>
-                    <div className="item-time"> <i className="icon-walking"/>2 min </div>
+                    <div className="item-name" id={"pompiers"}><i className="icon-pompier"></i></div>
+                    <div className="item-time" id={"time"}><i className="icon-walking"/></div>
                   </div>
                   <div className="zones-item">
-                    <div className="item-name"><i className="icon-hopital"></i>Hopital</div>
-                    <div className="item-time"> <i className="icon-walking"/>2 min </div> 
+                    <div className="item-name" id={"hopitaux"}><i className="icon-hopital"></i></div>
+                    <div className="item-time" id={"time"}><i className="icon-walking"/></div>
                   </div>
                 </div>
               </div>

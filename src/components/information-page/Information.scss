@@ -29,7 +29,11 @@
       width: 100%;
 
       h2 {
-        padding: 10px 0 0 10px;
+        padding: 10px 0 10px 10px;
+        
+        &:first-letter {
+          text-transform: uppercase;
+        }
       }
       .information__inner--top {
         width: 100%;
