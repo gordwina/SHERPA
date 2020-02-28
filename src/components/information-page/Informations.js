@@ -176,6 +176,9 @@ class Informations extends React.Component {
         }
     }
 
+
+
+  
   componentDidMount() {
     let url = this.state.url;
     this.getCapacity(url);
@@ -233,7 +236,7 @@ class Informations extends React.Component {
                 <h3>Secour à proximité </h3>
                 <div className="zones">
                   <div className="zones-item">
-                    <div className="item-name"><i className="icon-repli"></i>École Marcelin Berthelot</div>
+                    <div className="item-name"><i className="icon-repli"></i>École Marcelin Berthelot </div>
                     <div className="item-time"><i className="icon-walking"/>2 min </div>
                     <div className="item-capacity"> <i className="icon-people"/> 600 personnes</div> 
                   </div>
@@ -290,7 +293,7 @@ class Informations extends React.Component {
         <div className="information__right">
           <div className="information__right--top">
               {
-                   this.state.isUpdate === true ? ( <Gmap usingClass={"googleSmall"} zoom={16} lat={this.state.latitude} lng={this.state.longitude}> </Gmap>) : null
+                   this.state.isUpdate === true ? ( <Gmap usingClass={"googleSmall"} zoom={14} lat={this.state.latitude} lng={this.state.longitude}> </Gmap>) : null
               }
           </div>
           <div className="information__right--bottom">
