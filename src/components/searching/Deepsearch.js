@@ -37,7 +37,7 @@ class Deepsearch extends React.Component {
 
   handleClick = e => {
     this.setState({ searchList: e.target.value.toLowerCase() });
-    console.log(this.state.searchList);
+
   };
 
   onSearching() {
@@ -63,11 +63,7 @@ class Deepsearch extends React.Component {
     console.log('ok');
   };
 
-   
-
-
-
-
+  
   render() {
     return (
       <div className="DeepSearch">
@@ -112,6 +108,7 @@ class Deepsearch extends React.Component {
                   console.log(val);
                   let capacity = new Intl.NumberFormat('fr-FR', {  nu:'latn'  }).format(val.capacite);
                   return (
+
                     <FileLink
                       location={val.nom}
                       nom={val.nom}
@@ -119,6 +116,7 @@ class Deepsearch extends React.Component {
                       id={val["@id"]}
                       lat={val.latitude}
                       lng={val.longitude}
+                      crowd={val.epreuves[0].maxDayAffluence}
                     />
                   );
                 }

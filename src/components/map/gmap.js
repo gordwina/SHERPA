@@ -2,10 +2,10 @@ import React from "react";
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 import "./gmap.scss";
 import axios from 'axios';
-import PoliceStations from"../../asset/Imgmap/PoliceStations.svg";
-import FireStation from"../../asset/Imgmap/FireStation.svg";
+import PoliceStations from "../../asset/Imgmap/PoliceStations.svg";
+import FireStation from "../../asset/Imgmap/FireStation.svg";
 import Emergency from "../../asset/Imgmap/Emergency.svg";
-import Olympics2024 from "../../asset/Imgmap/Olympics2024.svg"; 
+import Olympics2024 from "../../asset/Imgmap/Olympics2024.svg";
 import SafetyZone from "../../asset/Imgmap/SafetyZone.svg";
 export class Gmap extends React.Component {
   constructor(props) {
@@ -34,12 +34,12 @@ export class Gmap extends React.Component {
       replis: []
     };
   }
- 
+
 
 
 
   componentDidMount = () => {
-    const url ={
+    const url = {
       'hopital': 'http://vps791823.ovh.net/api/hopitauxes',
       'pompier': 'http://vps791823.ovh.net/api/casernes_pompiers',
       'police': 'http://vps791823.ovh.net/api/postes_polices',
@@ -56,24 +56,24 @@ export class Gmap extends React.Component {
 
   request = (what, url) => {
     axios.get(url)
-    // Result comes here
-    .then((response) => {
-      let data = response.data["hydra:member"];
-      let state = {};
-      state[what] = data;
-      this.setState(state);
-    })
-    // Error catched here
-    .catch(function (error) {
-      console.log(error);
-    });
+      // Result comes here
+      .then((response) => {
+        let data = response.data["hydra:member"];
+        let state = {};
+        state[what] = data;
+        this.setState(state);
+      })
+      // Error catched here
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
 
-   /*====>> TO KEEP*/ 
-   onMarkerClick = (props, marker, e) => {
+  /*====>> TO KEEP*/
+  onMarkerClick = (props, marker, e) => {
     console.log(props.type);
-    if(props.type == 'Stades') {
+    if (props.type == 'Stades') {
       this.setState({
         selectedPlace: props,
         activeMarker: marker,
@@ -83,8 +83,8 @@ export class Gmap extends React.Component {
   }
 
   displayMarker = (items, icon) => {
-    return items.map((items, index) => { 
-      let capacity = new Intl.NumberFormat('fr-FR', {  nu:'latn'  }).format(items.capacite);
+    return items.map((items, index) => {
+      let capacity = new Intl.NumberFormat('fr-FR', { nu: 'latn' }).format(items.capacite);
       return (
         <Marker
           key={index}
@@ -101,17 +101,17 @@ export class Gmap extends React.Component {
             url: icon
           }}
           //capacite={items.capacite}
-          onClick={this.onMarkerClick}  
+          onClick={this.onMarkerClick}
         >
         </Marker>
       );
     });
   };
 
-    cut = () => {
-      let value = this.state.selectedPlace.id;
-      console.log(value.substring(0,16))
-    }
+  cut = () => {
+    let value = this.state.selectedPlace.id;
+    console.log(value.substring(0, 16))
+  }
 
   render() {
     return (
@@ -129,33 +129,33 @@ export class Gmap extends React.Component {
         // onZoomChanged={this.mapClickedHandler}
         // onBoundsChanged={this.zoomChangedHandler}
         onClick={this.mapClickedHandler}
-      >  
+      >
         {this.displayMarker(this.state.stadium, Olympics2024)}
         {this.displayMarker(this.state.hopital, Emergency)}
         {this.displayMarker(this.state.pompier, FireStation)}
-        {this.displayMarker(this.state.police, PoliceStations)} 
+        {this.displayMarker(this.state.police, PoliceStations)}
         {this.displayMarker(this.state.replis, SafetyZone)}
 
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
-          >
+          style={{ background: 'red' }}
+        >
 
-            <div  style= {{padding: '5px', display: 'flex', flexDirection: 'row'}}>
-             <div className="photo_stade">
-               {
-                 this.state.selectedPlace.image ? <img src={`http://vps791823.ovh.net/images/${this.state.selectedPlace.image && this.state.selectedPlace.image.nomImage}`} alt={"Photo-" + this.state.selectedPlace.name} /> :
-                     "photo inexistante"
-               }
+          <div style={{ padding: '5px', display: 'flex', flexDirection: 'row' }}>
+            <div className="photo_stade">
+              {
+                this.state.selectedPlace.image ? <img src={`http://vps791823.ovh.net/images/${this.state.selectedPlace.image && this.state.selectedPlace.image.nomImage}`} alt={"Photo-" + this.state.selectedPlace.name} /> :
+                  "photo inexistante"
+              }
 
-             </div>
-              <div style= {{marginLeft: '15px'}}>
-                <p style= {{fontWeight: '700', textAlign: 'left', marginTop:'20px'}}>{this.state.selectedPlace.name}</p>
-                <p style= {{textAlign: 'left', marginTop: '5px', marginBottom: '5px'}}> <i className="icon-people"></i> {this.state.selectedPlace.capacite}</p>
-                {console.log(this.state.selectedPlace)}
-                <a style= {{color: '#237EFF',  fontSize:'12px'}} href={"/informations" + this.state.selectedPlace.id} > voir la fiche</a>
-              </div>
             </div>
+            <div style={{ marginLeft: '15px' }}>
+              <p style={{ fontWeight: '700', textAlign: 'left', marginTop: '20px' }}>{this.state.selectedPlace.name}</p>
+              <p style={{ textAlign: 'left', marginTop: '5px', marginBottom: '5px' }}> <i className="icon-people"></i> {this.state.selectedPlace.capacite}</p>
+              <a style={{ color: '#237EFF', fontSize: '12px' }} href={"/informations" + this.state.selectedPlace.id} > voir la fiche</a>
+            </div>
+          </div>
         </InfoWindow>
       </Map>
     );
