@@ -14,7 +14,7 @@ class Favoris extends React.Component {
 
    fileGenerator(){
         let array = [];
-        for ( let i =0 ; i <7; i++){
+        for ( let i =0 ; i <3; i++){
           array.push(<FileLink/>)
         }
         return array
