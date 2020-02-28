@@ -14,12 +14,12 @@ class Favoris extends React.Component {
 
    fileGenerator(){
         let array = [];
-        for ( let i =0 ; i <7; i++){
+        for ( let i =0 ; i <3; i++){
           array.push(<FileLink/>)
         }
         return array
     }
-
+      
 
   onSearching() {
     this.setState(prevState =>({
@@ -28,14 +28,14 @@ class Favoris extends React.Component {
   }
   render() {
     return (
+      
       <div className="FavorisContainer">
         <button className="btn favoris" onClick={this.onSearching}>
-          mes favoris <i className="icon-arrow_icon"></i>
+          Mes favoris <i className="icon-arrow"></i>
         </button> 
 
         {this.state.openFav === true ? ( 
           <div className="FavorisWrapper">
-            <span className="letMusicPlay"></span>
              {this.fileGenerator()} 
           </div>
         )  : null} 

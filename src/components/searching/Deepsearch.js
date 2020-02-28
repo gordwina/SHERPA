@@ -4,7 +4,7 @@ import "../../style/colors.scss";
 import "../../style/font.scss";
 import "../../style/icon/style.scss";
 import FileLink from "../file-link/File-link";
-import Calendar from "../Calendar/Calendar";
+//import Calendar from "../Calendar/Calendar";
 import axios from 'axios'
 
 class Deepsearch extends React.Component {
@@ -18,13 +18,13 @@ class Deepsearch extends React.Component {
       openCalendar: false,
       values: [],
     };
-
     this.onSearching = this.onSearching.bind(this);
     this.onRemoving = this.onRemoving.bind(this);
   }
 
+
   componentDidMount = () => {
-    axios.get('http://vps791823.ovh.net/api/stades/')
+    axios.get('http://vps791823.ovh.net/api/stades')
     .then((response) => {
       this.setState({
         values: response.data["hydra:member"]
@@ -37,7 +37,7 @@ class Deepsearch extends React.Component {
 
   handleClick = e => {
     this.setState({ searchList: e.target.value.toLowerCase() });
-    console.log(this.state.searchList);
+
   };
 
   onSearching() {
@@ -63,6 +63,7 @@ class Deepsearch extends React.Component {
     console.log('ok');
   };
 
+  
   render() {
     return (
       <div className="DeepSearch">
@@ -87,35 +88,35 @@ class Deepsearch extends React.Component {
               </button>
             </div>
 
-            <div className="SearchBar">
+          {/*   <div className="SearchBar">
               <div className="DateSearch">
                 <p>
                   20/25/2024 <i className="icon-arrow"></i>
                 </p>
-              </div>
+              </div> 
 
               <div className="DeploydSearch">
                 <i className="icon-magn"></i>
               </div>
-            </div>
+            </div> */}
+
             <hr />
             <div className="FileLinkWrapper" onClick={this.fileGenerator}>
               {this.state.values.map(val => {
                 console.log(val);
                 if (val.nom.indexOf(this.state.searchValue) === 0) {
                   console.log(val);
+                  let capacity = new Intl.NumberFormat('fr-FR', {  nu:'latn'  }).format(val.capacite);
                   return (
+
                     <FileLink
                       location={val.nom}
                       nom={val.nom}
-                      capacity={val.capacite}
+                      capacity={capacity} 
                       id={val["@id"]}
                       lat={val.latitude}
                       lng={val.longitude}
-                      //crowd={val.epreuves.maxDayAffluence}
-                      // date={val.date}
-                      // chroni={val.chroni}
-                      // crowd = {val.crowd}
+                      crowd={val.epreuves[0].maxDayAffluence}
                     />
                   );
                 }

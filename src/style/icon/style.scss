@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?bd1h64');
-  src:  url('fonts/icomoon.eot?bd1h64#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?bd1h64') format('truetype'),
-    url('fonts/icomoon.woff?bd1h64') format('woff'),
-    url('fonts/icomoon.svg?bd1h64#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?i0u6uy');
+  src:  url('fonts/icomoon.eot?i0u6uy#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?i0u6uy') format('truetype'),
+    url('fonts/icomoon.woff?i0u6uy') format('woff'),
+    url('fonts/icomoon.svg?i0u6uy#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,9 +25,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-out:before {
+.icon-out-1:before {
   content: "\e900";
-  color: #ff5f72;
+}
+.icon-calendar:before {
+  content: "\e902";
 }
 .icon-capacity-1:before {
   content: "\e903";
@@ -47,10 +49,6 @@
 }
 .icon-arrow:before {
   content: "\e901";
-}
-.icon-calendar:before {
-  content: "\e902";
-  color: #3a506b;
 }
 .icon-favori:before {
   content: "\e908";

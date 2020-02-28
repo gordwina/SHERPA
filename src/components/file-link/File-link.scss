@@ -6,7 +6,7 @@
     height: 89px;
     margin-left: 16px; 
     margin-top: 10px;
-    background: $white; //blueviolet;
+    background: $white;
     border: 0.5px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     display: flex;
@@ -24,42 +24,52 @@
 }
 
 .FileLinkInformation{
-    width: 200px;
+    width: 250px;
     padding: 10px;
+    
+    p{
+        
+        line-height: 22px;   
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
     .FileLinkLocation{
         color: $blue;
         font-weight: 16px;
+     
     }
     .FileLinkCrowd {
-    .icon-level-yellow{
-        margin-right : 12px;
-    }
-    #green, #red, #yellow{
-        border-radius: 25px;
-        padding: 2px; 
-    }
-    #green, .green {background: $green ;}
-    #red, .red {background: $red ;}
-    #yellow, .yellow{background: $yellow;}
+        margin-top: 2px;
+        .icon-level-yellow, .icon-level-red, .icon-level-green-2 {
+            margin-right : 5px;
+        }
+        #green, #red, #yellow{
+            border-radius: 25px;
+            padding: 2px; 
+        }
+        #green, .green {
+            background: $green;
+        }
+        #red, .red {
+            background: $red;
+        }
+        #yellow, .yellow{
+            background: $yellow;
+        }
     }
 }
 
 .FileLinkPlus{
+    margin-left: 15px;
     padding: 10px;
     .icon-favori{
         color: grey;
-        font-size: 24px;
-        margin-left: 65px;
-       
+        font-size: 24px;  
+        &:hover {
+            color: $yellow;
+        }     
     }
-    .FileLinkScheduleX{
-        display: flex;
-        flex-direction: column;
-        margin-top: 10px;
-        word-break :none;
-        .FileLinkSchedule{
-            text-align: right;
-            font-size: 13px;
-        }  
-    }
+
 }

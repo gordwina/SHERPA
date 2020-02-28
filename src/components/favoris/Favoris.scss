@@ -1,26 +1,13 @@
 @import '../../style/indexStyle.scss';
 
-.FavorisContainer {
-  margin-top: 160px;
-  height: 200px;
-
-  .btn.favoris {
-    border:none;
-    .icon-favori{
-      margin-left: 2px;
-      font-size: 9px;
-    }
-  }
-
   .FavorisWrapper {
-    //background: yellow;
     position: absolute;
     height: 350px;
-    padding-top: 10px;
+    padding-top: 10px; 
     padding-right: 22px;
     padding-left: 9px;
     padding-bottom : 20px;
-    right: 190px;
+    right: 230px;
     top: 70px;
     background: $darkWhite ;
     border: solid #F2F2F2 1px;
@@ -28,21 +15,10 @@
     border-radius: 3px;
     overflow: scroll;
     z-index : 5;
-    .letMusicPlay{
-      position: fixed;
-      right: 258px;
-      top: 67px;
-      height: 3px;
-      width: 110px;
-      border-radius: 2px;
-      background: #3A506B;
-      position: fixed;
+  }
+ 
+  @media (max-width: 950px){
+    .FavorisWrapper {
+      margin-right: -100px;
     }
   }
-} 
-
-@media (max-width: 950px){
-  .FavorisWrapper {
-    margin-right: -100px;
-  }
-}

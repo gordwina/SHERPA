@@ -1,7 +1,7 @@
 export default([
   {
     "jours": "1",
-    "Jour 1": 10000,
+    "Jour 1": 12000,
 
   },
   {

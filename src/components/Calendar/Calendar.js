@@ -1,7 +1,5 @@
 import React from "react";
 import "./Calendar.scss";
-import next_mouth from '../../asset/mois--change.svg'
-import previous_mouth from '../../asset/mois-previous.svg'
 import axios from 'axios';
 class Calendar extends React.Component {
   constructor(props) {
@@ -11,41 +9,43 @@ class Calendar extends React.Component {
       tabDate : [],
       mouth: false,
       date: "Juillet - Aout 2024 ",
-      listDates : []
+      listDates : [],
+        clicked: null // item clicked for save value from calendar
     };
     this.onSearching = this.onSearching.bind(this);
   }
 
 
   onSearching() {
-    this.setState({
-      openFav: true
-    });
+    this.setState(prevState =>({
+      openFav: !prevState.openFav
+    }));
   }
+
 
   getAffluence = (id) => {
 
     axios.get('http://vps791823.ovh.net/api/dates/' + (id - 25))
-        .then(function (response) {
+        .then((response) => {
           let affluence = response.data.totalAffluenceJournalier;
           if(affluence > 350000) {
             document.getElementById(id).classList.add('icon-level-red');
             document.getElementById(id).addEventListener('click', () => {
-                console.log(response.data.id)
+                this.setState({clicked: response.data.id + 25})
             })
           } else if (affluence > 260000) {
             document.getElementById(id).classList.add('icon-level-yellow')
               document.getElementById(id).addEventListener('click', () => {
-                  console.log(response.data.id)
+                  this.setState({clicked: response.data.id + 25})
               })
           } else {
             document.getElementById(id).classList.add('icon-level-green-2')
               document.getElementById(id).addEventListener('click', () => {
-                  console.log(response.data.id)
+                  this.setState({clicked: response.data.id + 25})
               })
           }
         })
-        .catch(function (error) {
+        .catch((error) => {
           // handle error
           console.log(error);
         })
@@ -53,40 +53,47 @@ class Calendar extends React.Component {
 
     getAffluenceSecond = (id) => {
         axios.get('http://vps791823.ovh.net/api/dates/' + (id))
-            .then(function (response) {
+            .then((response) => {
                 let affluence = response.data.totalAffluenceJournalier;
                 if(affluence > 350000) {
                     document.getElementById(id).classList.add('icon-level-red');
                     document.getElementById(id).addEventListener('click', () => {
-                        console.log(response.data.id)
+                        this.setState({clicked: response.data.id + 25})
+
                     })
                 } else if (affluence > 260000) {
                     document.getElementById(id).classList.add('icon-level-yellow')
                     document.getElementById(id).addEventListener('click', () => {
-                        console.log(response.data.id)
+                        this.setState({clicked: response.data.id + 25})
+
                     })
                 } else {
                     document.getElementById(id).classList.add('icon-level-green-2')
                     document.getElementById(id).addEventListener('click', () => {
-                        console.log(response.data.id)
+                        this.setState({clicked: response.data.id + 25})
+
                     })
                 }
             })
-            .catch(function (error) {
+            .catch((error) => {
                 // handle error
                 console.log(error);
             })
     };
-
+    
   generateDays = () => {
     for (let i = 26; i <= 31; i++) {
-      this.state.listDates.push(<li><div>{i}<i id={i} className="round-affulence">{this.getAffluence(i)}</i></div></li>)
+      this.state.listDates.push(<li><div>{i}<i id={i} className="round-affulence" >{this.getAffluence(i)}</i></div></li>)
     }
       for (let i = 1; i <= 11; i++) {
           this.state.listDates.push(<li><div>{i}<i id={i} className="round-affulence">{this.getAffluenceSecond(i)}</i></div></li>)
       }
     return this.state.listDates
   };
+
+
+
+  
   render() {
     return (
       <div className="CalendarContainer">
@@ -122,5 +129,4 @@ class Calendar extends React.Component {
     );
   }
 }
-
 export default Calendar;

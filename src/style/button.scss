@@ -3,27 +3,26 @@
     border: 1px solid $darkBlue ;
     border-radius: 3px;
     width: 164px;
-    height: 40px;
+    height: 48px;
     outline:  none;
     margin-right: 20px;
     color: $darkBlue ;
-
-    &:hover {
-        background: $darkBlue ;
-        color: $white;
-        transition: transform .5s ease;
-        transition-duration: 1s;        
-    }
 }
 
-.btn .calendar {
+.btn.calendar {
     .icon-calendar {
         &:hover {
-            color: $yellow ;
+            color: $white ;
             transition: transform .5s ease;
             transition-duration: 1s;        
         }
     }
+    &:hover {
+        background: $darkBlue ;
+        color: $white;
+        transition: transform .5s ease;
+        transition-duration: 1s;  
+    }    
 }
 
 button{
@@ -37,7 +36,7 @@ button{
     border: 1px solid $darkBlue ;
     border-radius: 3px;
     width: 206px;
-    height: 40px;
+    height: 48px;
     outline:  none;
     color: $white;
     .icon-magn {
@@ -55,7 +54,7 @@ button{
 
 .locationButton {
     width: 181px;
-    height: 40px;
+    height: 48px;
     background-color: $white;
     border-radius: 3px; 
     .icon-arrow_icon{
@@ -73,15 +72,33 @@ input[type=text] {
 .logoutButton{
     border: 1px solid $red ;
     color: $red ;
+    .icon-out{
+        color: $red;    
+    }
     &:hover {
         background: $red ;
         color: $white;
         transition: transform .5s ease;
-        transition-duration: 1s;        
+        transition-duration: 1s;  
+          
     }
-    .icon-logout{
-        color: $red;
-        
-    }
+}
 
+.btn.favoris {
+    border:none;
+    
+    .icon-arrow{
+        margin-left: 2px;
+        font-size: 9px;
+    }
+    &:hover {
+        //background: black ;
+        padding-bottom : 8px;
+        border-bottom: 2px solid $darkBlue;
+        color: $darkBlue ;
+        transition: none;
+        transition-duration: none;   
+        border-radius: 0px;
+        //box-shadow: 0 10px 15px 0 rgba(0, 43, 77, 0.2);    
+    }
 }
