@@ -14,9 +14,10 @@ const LogoutPage = ({isAuthenticated, onLogout, history}) => {
     return (
         <div className="Head">
             <div className="brandingWrapper">
-                <div className="logo"></div>
-
-                <div className="brand">sherpa</div>
+                <a className={"logo"} href="/home">
+                    <div className="logo"></div>
+                    <div className="brand">sherpa</div>
+                </a>
             </div>
 
             <div className="buttonWrapper">
