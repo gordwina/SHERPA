@@ -22,7 +22,7 @@ const LogoutPage = ({isAuthenticated, onLogout, history}) => {
 
             <div className="buttonWrapper">
                 <Favoris></Favoris>
-                <button onClick={handleLogout} className="btn logoutButton">Déconnexion <i className="icon-out"></i></button>
+                <button onClick={handleLogout} className="btn logoutButton"> Déconnexion <i className="icon-out"></i></button>
             </div>
         </div>
     );

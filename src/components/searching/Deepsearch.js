@@ -4,7 +4,6 @@ import "../../style/colors.scss";
 import "../../style/font.scss";
 import "../../style/icon/style.scss";
 import FileLink from "../file-link/File-link";
-//import Calendar from "../Calendar/Calendar";
 import axios from 'axios'
 
 class Deepsearch extends React.Component {
@@ -68,7 +67,6 @@ class Deepsearch extends React.Component {
     return (
       <div className="DeepSearch">
         <button className="SearchButton" onClick={this.onSearching}>
-          {/* <button className="SearchButton" onClick={() => this.setState({ hasSearched: true })} >  */}
           <i className="icon-magn"></i>
           Rechercher un lieu
         </button>
@@ -87,19 +85,6 @@ class Deepsearch extends React.Component {
                 <i className="icon-remove"></i>
               </button>
             </div>
-
-          {/*   <div className="SearchBar">
-              <div className="DateSearch">
-                <p>
-                  20/25/2024 <i className="icon-arrow"></i>
-                </p>
-              </div> 
-
-              <div className="DeploydSearch">
-                <i className="icon-magn"></i>
-              </div>
-            </div> */}
-
             <hr />
             <div className="FileLinkWrapper" onClick={this.fileGenerator}>
               {this.state.values.map(val => {
