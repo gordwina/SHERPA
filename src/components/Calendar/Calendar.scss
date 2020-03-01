@@ -32,7 +32,7 @@
 .weekdays {
     margin: 0;
     padding: 10px 0;
-    background-color: #3A506B;
+    background-color:  $darkBlue ;
 }
 
 .weekdays li {
@@ -40,14 +40,14 @@
     width: 13.6%;
     text-align: center;
     height: 20px;
-    color: white;
+    color: $white;
 
 
 }
 
 .days {
     padding: 10px 0;
-    background: white;
+    background: $white;
     margin: 0;
     height: calc(100% - 30px);
     margin-left: 6px;
@@ -70,8 +70,8 @@
 
 
     &:hover {
-        background: #3A506B;
-        color: white;
+        background: $darkBlue ;
+        color: $white;
     }
 
     div {
@@ -91,14 +91,14 @@
         margin-top: 8px;
     }
     .less {
-        background: #5BC0BE;
+        background: $green;
     }
     .middle {
-        background: #FFC01F;
+        background: $yellow ;
     }
 
     .more {
-        background: #FF5F72;
+        background: $red ;
     }
 
     .special {
