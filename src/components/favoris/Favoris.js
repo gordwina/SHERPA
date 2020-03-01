@@ -17,13 +17,13 @@ class Favoris extends React.Component {
     this.onSearching = this.onSearching.bind(this);
   }
 
-  fileGenerator(){
-    let array = [];
-    for (let i =0 ; i <3; i++){
-      array.push(<FileLink/>)
-    }
-    return array
-  }
+
+   fileGenerator(){
+        let array = [];
+        for (let i =0 ; i <3; i++){
+          array.push(<FileLink/>)
+        }
+        return array
        
 
   onSearching() {
@@ -54,7 +54,8 @@ class Favoris extends React.Component {
         {this.state.openFav === true ? ( 
           <div className="FavorisWrapper">
             {this.state.values.slice(0, 3).map(val => {
-               // console.log(val);
+
+                console.log(val);
 
                 if (val.nom.indexOf(this.state.searchValue) === 0) {
                   let capacity = new Intl.NumberFormat('fr-FR', {  nu:'latn'  }).format(val.capacite);
