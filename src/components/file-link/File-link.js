@@ -1,5 +1,6 @@
 import React from "react";
 import "./File-link.scss";
+import axios from "axios";
 
 class FileLink extends React.Component {
  
@@ -10,14 +11,13 @@ class FileLink extends React.Component {
   }
 
 
-
 //TODO@Alice : CLEANUP 
   render() {
     return (
       <div>
         <a href={"/informations" + this.props.id}>
           <div className="FileLink">
-            <div className="FileLinkImage"></div>
+            <div className="FileLinkImage" id="img"></div>
             <div className="FileLinkInformation">
               <p className="FileLinkLocation">
                 <strong>{this.props.nom}</strong>
