@@ -17,13 +17,13 @@ class Favoris extends React.Component {
     this.onSearching = this.onSearching.bind(this);
   }
 
+
    fileGenerator(){
         let array = [];
         for (let i =0 ; i <3; i++){
           array.push(<FileLink/>)
         }
         return array
-    }
        
 
   onSearching() {
@@ -51,10 +51,10 @@ class Favoris extends React.Component {
         <button className="btn favoris" onClick={this.onSearching}>
           Mes favoris <i className="icon-arrow"></i>
         </button> 
-
         {this.state.openFav === true ? ( 
           <div className="FavorisWrapper">
             {this.state.values.slice(0, 3).map(val => {
+
                 console.log(val);
 
                 if (val.nom.indexOf(this.state.searchValue) === 0) {

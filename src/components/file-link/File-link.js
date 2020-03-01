@@ -11,7 +11,6 @@ class FileLink extends React.Component {
   }
 
 
-//TODO@Alice : CLEANUP 
   render() {
     return (
       <div>

@@ -92,13 +92,11 @@ input[type=text] {
         font-size: 9px;
     }
     &:hover {
-        //background: black ;
         padding-bottom : 8px;
         border-bottom: 2px solid $darkBlue;
         color: $darkBlue ;
         transition: none;
         transition-duration: none;   
         border-radius: 0px;
-        //box-shadow: 0 10px 15px 0 rgba(0, 43, 77, 0.2);    
     }
 }

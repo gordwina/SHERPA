@@ -18,15 +18,6 @@ export class Gmap extends React.Component {
       activeMarker: {},
       selectedPlace: {},
       idMarker: {},
-      //openInfo = false,
-
-      stadium: [
-      ],
-      police: [
-      ],
-
-      //openInfo = false,
-
       stadium: [],
       police: [],
       hopital: [],
@@ -36,6 +27,7 @@ export class Gmap extends React.Component {
   }
 
 
+ /*  link between back and front  */
 
 
   componentDidMount = () => {
@@ -70,7 +62,7 @@ export class Gmap extends React.Component {
   }
 
 
-  /*====>> TO KEEP*/
+  /*====>> TO KEEP - marker click */
   onMarkerClick = (props, marker, e) => {
     console.log(props.type);
     if (props.type == 'Stades') {
@@ -81,7 +73,7 @@ export class Gmap extends React.Component {
       });
     }
   }
-
+ 
   displayMarker = (items, icon) => {
     return items.map((items, index) => {
       let capacity = new Intl.NumberFormat('fr-FR', { nu: 'latn' }).format(items.capacite);
@@ -100,7 +92,6 @@ export class Gmap extends React.Component {
           icon={{
             url: icon
           }}
-          //capacite={items.capacite}
           onClick={this.onMarkerClick}
         >
         </Marker>
@@ -122,12 +113,9 @@ export class Gmap extends React.Component {
         zoom={this.props.zoom}
         lat={this.props.latitude}
         lng={this.props.longitude}
-        //style={mapStyles}
         initialCenter={{ lat: this.props.lat, lng: this.props.lng }}
         onZoomChanged={this.zoomChangedHandler}
         onResize={this.zoomChangedHandler}
-        // onZoomChanged={this.mapClickedHandler}
-        // onBoundsChanged={this.zoomChangedHandler}
         onClick={this.mapClickedHandler}
       >
         {this.displayMarker(this.state.stadium, Olympics2024)}
@@ -139,8 +127,7 @@ export class Gmap extends React.Component {
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
-          style={{ background: 'red' }}
-        >
+          style={{ background: 'red' }}>
 
           <div style={{ padding: '5px', display: 'flex', flexDirection: 'row' }}>
             <div className="photo_stade">
@@ -148,8 +135,8 @@ export class Gmap extends React.Component {
                 this.state.selectedPlace.image ? <img src={`http://vps791823.ovh.net/images/${this.state.selectedPlace.image && this.state.selectedPlace.image.nomImage}`} alt={"Photo-" + this.state.selectedPlace.name} /> :
                   "photo inexistante"
               }
-
             </div>
+            
             <div style={{ marginLeft: '15px' }}>
               <p style={{ fontWeight: '700', textAlign: 'left', marginTop: '20px' }}>{this.state.selectedPlace.name}</p>
               <p style={{ textAlign: 'left', marginTop: '5px', marginBottom: '5px' }}> <i className="icon-people"></i> {this.state.selectedPlace.capacite}</p>

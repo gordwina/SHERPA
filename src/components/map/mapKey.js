@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import "./mapKey.scss";
 
 class MapKey extends React.Component {
@@ -13,21 +12,26 @@ class MapKey extends React.Component {
         <div className="statusLeft">
           <p>
             {" "}
-            <i className="icon-pompier"></i> Casernes de
-            Pompier{" "}
+            <i className="icon-pompier"></i> 
+            Casernes de Pompier{" "}
           </p>
+
           <p>
             {" "}
-            <i className="icon-polic"></i> Caserne de Police
+            <i className="icon-polic"></i> 
+            Caserne de Police
           </p>
         </div>
 
         <div className="statusRight">
           <p>
-            <i className="icon-hopital"></i> Hopitaux
+            <i className="icon-hopital"></i> 
+            Hopitaux
           </p>
+
           <p>
-            <i className="icon-repli"></i>Zone de Repli
+            <i className="icon-repli"></i>
+            Zone de Repli
           </p>
         </div>
       </div>

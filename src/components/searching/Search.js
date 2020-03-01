@@ -1,9 +1,6 @@
 import React from "react";
-
 //css
-
 import "./search.scss";
-
 import SearchLeft from "./searchLeft";
 import Deepsearch from "./Deepsearch";
 import Gmap from "./gmap";

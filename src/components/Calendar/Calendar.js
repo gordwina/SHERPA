@@ -51,35 +51,35 @@ class Calendar extends React.Component {
         })
   };
 
-    getAffluenceSecond = (id) => {
-        axios.get('http://vps791823.ovh.net/api/dates/' + (id))
-            .then((response) => {
-                let affluence = response.data.totalAffluenceJournalier;
-                if(affluence > 350000) {
-                    document.getElementById(id).classList.add('icon-level-red');
-                    document.getElementById(id).addEventListener('click', () => {
-                        this.setState({clicked: response.data.id + 25})
-
-                    })
-                } else if (affluence > 260000) {
-                    document.getElementById(id).classList.add('icon-level-yellow')
-                    document.getElementById(id).addEventListener('click', () => {
-                        this.setState({clicked: response.data.id + 25})
-
-                    })
-                } else {
-                    document.getElementById(id).classList.add('icon-level-green-2')
-                    document.getElementById(id).addEventListener('click', () => {
-                        this.setState({clicked: response.data.id + 25})
-
-                    })
-                }
-            })
-            .catch((error) => {
-                // handle error
-                console.log(error);
-            })
-    };
+  getAffluenceSecond = (id) => {
+    axios.get('http://vps791823.ovh.net/api/dates/' + (id))
+    .then((response) => {
+      let affluence = response.data.totalAffluenceJournalier;
+      if(affluence > 350000) {
+        document.getElementById(id).classList.add('icon-level-red');
+        document.getElementById(id).addEventListener('click', () => {
+          this.setState({clicked: response.data.id + 25})
+          
+        })
+      } else if (affluence > 260000) {
+        document.getElementById(id).classList.add('icon-level-yellow')
+        document.getElementById(id).addEventListener('click', () => {
+          this.setState({clicked: response.data.id + 25})
+          
+        })
+      } else {
+        document.getElementById(id).classList.add('icon-level-green-2')
+        document.getElementById(id).addEventListener('click', () => {
+          this.setState({clicked: response.data.id + 25})
+          
+        })
+      }
+    })
+    .catch((error) => {
+      // handle error
+      console.log(error);
+    })
+  };
     
   generateDays = () => {
     for (let i = 26; i <= 31; i++) {
@@ -97,7 +97,6 @@ class Calendar extends React.Component {
   render() {
     return (
       <div className="CalendarContainer">
-        {/*  @todo:alice calenddrier va devenir une modale */}
         <button className="btn calendar" id="openCalendar" onClick={this.onSearching}>
           calendrier <i className="icon-calendar"></i>
         </button>

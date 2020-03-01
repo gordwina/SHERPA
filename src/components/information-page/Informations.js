@@ -89,117 +89,118 @@ class Informations extends React.Component {
         })
   };
 
-    getImage = (id) => {
-        axios.get('http://vps791823.ovh.net/api/stades/' + id)
-            .then((response) => {
-                this.setState({
-                    image: response.data.imagesStades.nomImage,
-                    isUpdateImage: true
-                });
-            },
-                (error) => {
-                this.setState({
-                    error
-                });
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    };
+  getImage = (id) => {
+    axios.get('http://vps791823.ovh.net/api/stades/' + id)
+    .then((response) => {
+      this.setState({
+        image: response.data.imagesStades.nomImage,
+        isUpdateImage: true
+      });
+    },
+    (error) => {
+      this.setState({
+        error
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  };
 
-    getCoordonnees = (id) => {
-        axios.get('http://vps791823.ovh.net/api/stades/' + id)
-            .then((response) => {
-                    this.setState({
-                        isUpdate : true,
-                        longitude: response.data.longitude,
-                        latitude: response.data.latitude
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        error
-                    });
-                }
-            ) .catch((error) => {
-            console.log(error);
-        })
-    };
-
-
-    getDates =  () => {
-        axios.get('http://vps791823.ovh.net/api/dates/')
-            .then((response) => {
-                    for (let i = 0; i < 17; i++) {
-                        this.setState({
-                            isUpdateValueDate : true,
-                        });
-                        let date = response.data["hydra:member"][i].date;
-                        this.state.listDates.push(date.substr(0, 10))
-                    }
-
-                    console.log(this.state.listDates);
-                },
-                (error) => {
-                    this.setState({
-                        error
-                    });
-                }
-            ) .catch((error) => {
-            console.log(error);
-        })
-    };
-
-    getSecours = (id, item) => {
-        axios.get('http://vps791823.ovh.net/api/stades/' + id)
-            .then((response) => {
-                let responses = response.data;
-                document.getElementById(item).innerHTML += responses[`${item}`].nom
-
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    };
-
-    getCapacityZone = (id) => {
-        axios.get('http://vps791823.ovh.net/api/stades/' + id)
-            .then((response) => {
-                let responses = response.data;
-                document.getElementById("capaciteReplis").innerHTML += responses.replis.capacite + " personnes"
-
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    };
-
-
-    getTotalAffluence = async (id) => {
-        for (let i = 0; i < 17; i++) {
-            let req = 'http://vps791823.ovh.net/api/epreuves?idStade=' + id + "&idDate.date=" + this.state.listDates[i];
-             await axios.get(req)
-                .then((response) => {
-                    let value = response.data['hydra:member'][0].maxDayAffluence;
-                    this.state.data.push(
-                        {
-                            "jours": i + 1,
-                            [`Jour ${i + 1}`] : value
-                        }
-                    );
-                    }
-                ) .catch((error) => {
-                //console.log(error);
-                     this.state.data.push(
-                         {
-                             "jours": i + 1,
-                             [`Jour ${i + 1}`] : 0
-                         }
-                     );
-                     this.setState({isUpdateData: true})
-            })
-        }
+  getCoordonnees = (id) => {
+    axios.get('http://vps791823.ovh.net/api/stades/' + id)
+    .then((response) => {
+      this.setState({
+        isUpdate : true,
+        longitude: response.data.longitude,
+        latitude: response.data.latitude
+      });
+    },
+    (error) => {
+      this.setState({
+        error
+      });
     }
+    ) .catch((error) => {
+      console.log(error);
+    })
+  };
+
+
+  getDates =  () => {
+    axios.get('http://vps791823.ovh.net/api/dates/')
+    .then((response) => {
+      for (let i = 0; i < 17; i++) {
+        this.setState({
+          isUpdateValueDate : true,
+        });
+        let date = response.data["hydra:member"][i].date;
+        this.state.listDates.push(date.substr(0, 10))
+      }
+      
+      console.log(this.state.listDates);
+    },
+    (error) => {
+      this.setState({
+        error
+      });
+    }
+    ) .catch((error) => {
+      console.log(error);
+    })
+  };
+
+  getSecours = (id, item) => {
+    axios.get('http://vps791823.ovh.net/api/stades/' + id)
+    .then((response) => {
+      let responses = response.data;
+      document.getElementById(item).innerHTML += responses[`${item}`].nom
+      
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  };
+
+  getCapacityZone = (id) => {
+    axios.get('http://vps791823.ovh.net/api/stades/' + id)
+    .then((response) => {
+      let responses = response.data;
+      document.getElementById("capaciteReplis").innerHTML += responses.replis.capacite + " personnes"
+      
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  };
+
+
+  getTotalAffluence = async (id) => {
+    for (let i = 0; i < 17; i++) {
+      let req = 'http://vps791823.ovh.net/api/epreuves?idStade=' + id + "&idDate.date=" + this.state.listDates[i];
+      await axios.get(req)
+      .then((response) => {
+        let value = response.data['hydra:member'][0].maxDayAffluence;
+        this.state.data.push(
+          {
+            "jours": i + 1,
+            [`Jour ${i + 1}`] : value
+          }
+          );
+      }
+      )
+      .catch((error) => {
+        //console.log(error);
+        this.state.data.push(
+          {
+            "jours": i + 1,
+            [`Jour ${i + 1}`] : 0
+          }
+          );
+        this.setState({isUpdateData: true})
+      })
+    }
+  }
 
   componentDidMount() {
     let url = this.state.url;
@@ -218,21 +219,19 @@ class Informations extends React.Component {
     this.getCapacityZone(url);
   }
 
-     getTime = () => {
-         function getRandomInt(min, max) {
-             min = Math.ceil(min);
-             max = Math.floor(max);
-             return Math.floor(Math.random() * (max - min)) + min;
-         }
-         
-         
-        let time = document.querySelectorAll('#time');
-         for (let i = 0; i < time.length ; i++) {
-             let int = getRandomInt(1, 10);
-             time[i].innerHTML += int + " min";
-         }
-
+  getTime = () => {
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min;
     }
+     
+    let time = document.querySelectorAll('#time');
+    for (let i = 0; i < time.length ; i++) {
+      let int = getRandomInt(1, 10);
+      time[i].innerHTML += int + " min";
+    } 
+  }
 
     render() {
     return (
@@ -243,8 +242,6 @@ class Informations extends React.Component {
         
           <SearchLeft></SearchLeft>
           <div className= "trytry">
-{/* box commence ici  */}
-
             <div className="information__left--top">
               <h2 id={"name"}></h2>
               <div className="information__inner--top">
